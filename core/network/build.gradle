@@ -1,0 +1,14 @@
+plugins {
+    id 'extended-android-library'
+}
+
+android {
+    namespace 'com.neophron.network'
+}
+
+dependencies {
+    api libs.okhttp
+    api libs.retrofit
+    api libs.moshi
+    api libs.okhttp.logging.interceptor
+}

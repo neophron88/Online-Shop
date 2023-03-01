@@ -1,0 +1,7 @@
+plugins {
+    id 'extended-android-library'
+}
+
+android {
+    namespace 'com.neophron.ui'
+}

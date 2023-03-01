@@ -1,0 +1,15 @@
+plugins {
+    id 'feature-android-library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.neophron.main'
+
+}
+
+dependencies {
+    implementation project(':feature:main:home')
+    implementation project(':feature:main:profile')
+    implementation project(':feature:main:product-detail')
+}
