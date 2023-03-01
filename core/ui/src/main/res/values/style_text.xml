@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Headline1TextAppearanceSemiBold" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="Headline2TextAppearanceSemiBold" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="Title1TextAppearanceSemiBold" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="Title2TextAppearanceSemiBold" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Title3TextAppearanceSemiBold" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Title3TextAppearanceMedium" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Title3TextAppearanceRegular" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Label1TextAppearanceRegular" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="Label1TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="Label2TextAppearanceRegular" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Label2TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+</resources>

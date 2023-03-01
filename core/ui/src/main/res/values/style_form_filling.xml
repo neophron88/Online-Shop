@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="FillingForm" />
+
+    <style name="FillingForm.WrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="FillingForm.WrapContent.WidthMatchP">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="FillingForm.WrapContent.HeightMatchP">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="FillingForm.WrapContent.TitleTextForm">
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <style name="FillingForm.WrapContent.HelperTextForm">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+
+    <style name="FillingForm.WrapContent.WidthMatchP.Content">
+        <item name="android:layout_marginTop">22dp</item>
+    </style>
+
+    <style name="FillingForm.WrapContent.WidthMatchP.FormContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="trade_by_bata">Trade by  <font color='#4E55D7'>bata</font></string>
+    <string name="what_are_you_looking_for">What are you looking for ?</string>
+    <string name="location">Location</string>
+    <string name="phones">Phones</string>
+    <string name="headphones">Headphones</string>
+    <string name="games">Games</string>
+    <string name="cars">Cars</string>
+    <string name="furniture">Furniture</string>
+    <string name="kids">kids</string>
+    <string name="view_all">View all</string>
+    <string name="dollar_pattern">%1$s $</string>
+    <string name="discount_pattern">%1$s% off</string>
+
+
+
+
+</resources>

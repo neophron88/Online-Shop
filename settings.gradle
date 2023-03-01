@@ -18,7 +18,7 @@ include ':app'
 include ':feature:splash'
 include ':feature:auth'
 include ':feature:main'
-include ':feature:main:profile'
+
 include ':feature:main:home'
 include ':feature:main:product-detail'
 include ':core:database'
@@ -29,3 +29,4 @@ include ':core:feature'
 
 
 enableFeaturePreview("VERSION_CATALOGS")
+include ':feature:main:profile'

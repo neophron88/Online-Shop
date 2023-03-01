@@ -1,0 +1,12 @@
+
+plugins {
+    id 'com.android.library'
+    id 'base-android-library'
+
+}
+
+android {
+    defaultConfig {
+        consumerProguardFiles "consumer-rules.pro"
+    }
+}
