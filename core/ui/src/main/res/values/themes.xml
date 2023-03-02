@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.OnlineShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/purple_200</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/white</item>
 
@@ -13,6 +13,9 @@
         <item name="backgroundColor">@color/white</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:windowBackground">@drawable/ic_shopping_bag_wrap</item>
+
+        <item name="materialButtonStyle">@style/GlobalButtonStyle</item>
+        <item name="textInputStyle">@style/GlobalTextInputStyle</item>
 
     </style>
 </resources>

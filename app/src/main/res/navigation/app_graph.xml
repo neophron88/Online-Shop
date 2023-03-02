@@ -7,5 +7,19 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.neophron.splash.SplashFragment"
-        android:label="SplashFragment" />
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_authHostFragment"
+            app:destination="@id/authHostFragment"
+            app:enterAnim="@anim/from_right_to_center"
+            app:exitAnim="@anim/from_center_to_left"
+            app:popEnterAnim="@anim/from_left_to_center"
+            app:popExitAnim="@anim/from_center_to_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/authHostFragment"
+        android:name="com.neophron.auth.AuthHostFragment"
+        android:label="AuthHostFragment" />
 </navigation>

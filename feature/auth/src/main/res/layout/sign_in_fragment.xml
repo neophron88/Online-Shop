@@ -6,5 +6,115 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+    <LinearLayout style="@style/FillingForm.WrapContent.WidthMatchP.Container">
+
+        <TextView
+            style="@style/FillingForm.WrapContent.TitleTextForm"
+            android:text="@string/sign_in"
+            android:textAppearance="@style/Headline1TextAppearanceSemiBold"
+            android:textColor="@color/purple_900" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_first_name"
+            style="@style/FillingForm.WrapContent.WidthMatchP.Content"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/auth_edit_text_height"
+                android:hint="@string/first_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_last_name"
+            style="@style/FillingForm.WrapContent.WidthMatchP.Content"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_last_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/auth_edit_text_height"
+                android:hint="@string/last_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_email"
+            style="@style/FillingForm.WrapContent.WidthMatchP.Content"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/auth_edit_text_height"
+                android:hint="@string/email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_password"
+            style="@style/FillingForm.WrapContent.WidthMatchP.Content"
+            app:endIconDrawable="@drawable/password_toggle"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/auth_edit_text_height"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/sign_in"
+            style="@style/FillingForm.WrapContent.WidthMatchP.Content"
+            android:text="@string/sign_in" />
+
+        <TextView
+            android:id="@+id/go_to_log_in"
+            style="@style/FillingForm.WrapContent.WidthMatchP.HelperTextForm"
+            android:text="@string/already_have_an_account"
+            android:textAppearance="@style/Label2TextAppearanceRegular"
+            android:textColor="@color/gray_500" />
+
+        <LinearLayout
+            style="@style/FillingForm.WrapContent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="38dp">
+
+            <TextView
+                android:id="@+id/sign_in_with_google"
+                style="@style/FillingForm.WrapContent"
+                android:drawablePadding="12dp"
+                android:text="@string/sign_in_with_google"
+                android:textAppearance="@style/Label1TextAppearanceMedium"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/ic_google" />
+
+            <TextView
+                android:id="@+id/sign_in_with_apple"
+                style="@style/FillingForm.WrapContent"
+                android:layout_marginTop="32dp"
+                android:drawablePadding="12dp"
+                android:text="@string/sign_in_with_apple"
+                android:textAppearance="@style/Label1TextAppearanceMedium"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/ic_apple" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </ScrollView>

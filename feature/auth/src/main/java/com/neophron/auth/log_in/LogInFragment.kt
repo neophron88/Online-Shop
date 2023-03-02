@@ -1,4 +1,7 @@
 package com.neophron.auth.log_in
 
-class LogInFragment {
+import androidx.fragment.app.Fragment
+import com.neophron.auth.R
+
+class LogInFragment : Fragment(R.layout.log_in_fragment) {
 }

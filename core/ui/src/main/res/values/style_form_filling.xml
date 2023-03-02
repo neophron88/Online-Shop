@@ -18,29 +18,25 @@
     </style>
 
     <style name="FillingForm.WrapContent.TitleTextForm">
-        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginBottom">22dp</item>
     </style>
 
-    <style name="FillingForm.WrapContent.HelperTextForm">
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:layout_marginBottom">4dp</item>
+    <style name="FillingForm.WrapContent.WidthMatchP.HelperTextForm">
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
     </style>
 
 
     <style name="FillingForm.WrapContent.WidthMatchP.Content">
-        <item name="android:layout_marginTop">22dp</item>
+        <item name="android:layout_marginTop">32dp</item>
     </style>
 
-    <style name="FillingForm.WrapContent.WidthMatchP.FormContainer">
+    <style name="FillingForm.WrapContent.WidthMatchP.Container">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:paddingStart">24dp</item>
-        <item name="android:paddingEnd">24dp</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingBottom">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">36dp</item>
 
     </style>
 

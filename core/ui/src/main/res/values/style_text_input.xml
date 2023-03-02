@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GlobalTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusBottomEnd">28dp</item>
+        <item name="boxCornerRadiusBottomStart">28dp</item>
+        <item name="boxCornerRadiusTopStart">28dp</item>
+        <item name="boxCornerRadiusTopEnd">28dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+        <item name="textInputStyle">@style/MaterialThemeOverlay</item>
+        <item name="materialThemeOverlay">@style/MaterialThemeOverlay</item>
+    </style>
+
+
+    <style name="ExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusBottomEnd">28dp</item>
+        <item name="boxCornerRadiusBottomStart">28dp</item>
+        <item name="boxCornerRadiusTopStart">28dp</item>
+        <item name="boxCornerRadiusTopEnd">28dp</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+        <item name="textInputStyle">@style/MaterialThemeOverlay</item>
+    </style>
+
+
+    <style name="HintTextAppearance" parent="TextAppearance.Material3.TitleMedium" />
+
+    <style name="MaterialThemeOverlay" parent="ThemeOverlay.MaterialComponents">
+        <item name="editTextStyle">@style/EditTextStyle</item>
+    </style>
+
+    <style name="EditTextStyle" parent="@style/Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:backgroundTint">@color/gray_200</item>
+    </style>
+</resources>

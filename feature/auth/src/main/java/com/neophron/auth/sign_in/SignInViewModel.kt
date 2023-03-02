@@ -1,4 +1,6 @@
 package com.neophron.auth.sign_in
 
-class SignInViewModel {
+import androidx.lifecycle.ViewModel
+
+class SignInViewModel : ViewModel() {
 }
