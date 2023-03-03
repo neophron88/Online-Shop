@@ -1,0 +1,14 @@
+plugins {
+    id 'extended-android-library'
+}
+
+android {
+    namespace 'com.neophron.account'
+}
+
+dependencies {
+    implementation project(':core:database')
+    implementation project(':core:network')
+    implementation project(':core:mylibrary')
+}
+

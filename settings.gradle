@@ -30,3 +30,4 @@ include ':core:feature'
 
 enableFeaturePreview("VERSION_CATALOGS")
 include ':feature:main:profile'
+include ':core:account'
