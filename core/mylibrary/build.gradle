@@ -1,10 +1,16 @@
 plugins {
-    id 'extended-android-library'
+    id 'com.android.library'
+    id 'base-android-library'
+
 }
 
 android {
     namespace 'com.neophron.mylibrary'
+    defaultConfig {
+        consumerProguardFiles "consumer-rules.pro"
+    }
 }
+
 
 dependencies {
     compileOnly libs.viewBinding
@@ -12,7 +18,7 @@ dependencies {
 
     compileOnly libs.navigation.ui.ktx
     compileOnly libs.navigation.fragment.ktx
-    
+
     implementation libs.recyclerview
 
 }

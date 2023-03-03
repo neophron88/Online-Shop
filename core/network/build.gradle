@@ -7,8 +7,11 @@ android {
 }
 
 dependencies {
+    implementation project(':core:database')
+
     implementation libs.okhttp
     implementation libs.retrofit
     implementation libs.moshi
     implementation libs.okhttp.logging.interceptor
+
 }

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.neophron.feature.contract.AppNavigator
 import com.neophron.mylibrary.ktx.postDelayed
-import com.neophron.mylibrary.ktx.takeAs
+import com.neophron.mylibrary.takeAs
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {
 

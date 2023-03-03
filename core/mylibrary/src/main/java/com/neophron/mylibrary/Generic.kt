@@ -1,4 +1,7 @@
-package com.neophron.mylibrary.ktx
+package com.neophron.mylibrary
+
+
+inline fun <T, R> T.map(block: T.() -> R): R = this.block()
 
 
 inline fun <reified T> Any.takeAs(): T =
