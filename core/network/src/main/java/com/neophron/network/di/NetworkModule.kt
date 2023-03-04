@@ -1,5 +1,8 @@
 package com.neophron.network.di
 
+import android.app.Application
+import com.neophron.network.UserTokenStore
+import com.neophron.network.UserTokenStoreImpl
 import com.neophron.network.base.BaseUrl
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -12,14 +15,18 @@ import javax.inject.Singleton
 @Module
 internal class NetworkModule {
 
-
     private fun getMoshi(): Moshi = Moshi.Builder().build()
-
 
     @Provides
     @Singleton
     internal fun provideBaseUrl(): BaseUrl {
         return BaseUrl("https://")
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideUserTokenStore(application: Application): UserTokenStore {
+        return UserTokenStoreImpl(application)
     }
 
     @Provides

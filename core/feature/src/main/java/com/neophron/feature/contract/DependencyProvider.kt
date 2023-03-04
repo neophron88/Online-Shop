@@ -5,14 +5,14 @@ interface DependencyProvider {
     val dependency: Any
 }
 
-inline fun <reified R, reified T> R.extractDependency(): T {
+inline fun <reified T> Any.extractDependency(): T {
     val provider = this
     if (provider !is DependencyProvider)
-        error("The Application did not implement DependencyProvider")
+        error("The ${this::class.simpleName} did not implement DependencyProvider")
 
     val dependency: Any = provider.dependency
     if (dependency !is T)
-        error("The top level dagger component did not implement ${T::class.simpleName}")
+        error("DependencyProvider's dependency field did not implement ${T::class.simpleName}")
 
     return dependency
 }

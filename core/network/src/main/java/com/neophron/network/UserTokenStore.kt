@@ -5,9 +5,10 @@ import android.content.Context
 import androidx.core.content.edit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
-interface UserToken {
+interface UserTokenStore {
 
     var token: String?
 
@@ -15,9 +16,9 @@ interface UserToken {
 
 }
 
-internal class UserTokenImpl(
+internal class UserTokenStoreImpl(
     application: Application
-) : UserToken {
+) : UserTokenStore {
 
     private val preference = application.getSharedPreferences("userToken", Context.MODE_PRIVATE)
 
@@ -28,7 +29,7 @@ internal class UserTokenImpl(
     override suspend fun setToken(token: String?) {
         withContext(Dispatchers.IO) {
             preference.edit(commit = true) { putString("token", token) }
-            mutex.lock { this@UserTokenImpl.token = token }
+            mutex.withLock { this@UserTokenStoreImpl.token = token }
         }
     }
 

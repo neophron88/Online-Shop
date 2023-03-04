@@ -12,15 +12,15 @@ inline fun <LOCAL, NETWORK, RESULT> offlineFirst(
     crossinline localDataFlow: () -> Flow<LOCAL?>,
     crossinline syncWithNetwork: suspend () -> NETWORK?,
     crossinline updateLocalData: suspend (NETWORK) -> Unit,
-    crossinline onSyncError: suspend (e: Exception) -> Result<RESULT>,
-    crossinline onPending: suspend () -> Result<RESULT>,
-    crossinline onResult: suspend (LOCAL?) -> Result<RESULT>,
-): Flow<Result<RESULT>> = flow {
+    crossinline pending: suspend () -> RESULT,
+    crossinline syncError: suspend (e: Exception) -> RESULT,
+    crossinline result: suspend (LOCAL?) -> RESULT,
+): Flow<RESULT> = flow {
 
     val localData = localDataFlow()
-    emit(onResult(localData.first()))
+    emit(result(localData.first()))
 
-    emit(onPending())
+    emit(pending())
 
     val syncResult = longLiveScope.async {
         try {
@@ -34,10 +34,10 @@ inline fun <LOCAL, NETWORK, RESULT> offlineFirst(
     }.await()
 
     if (syncResult is SyncResult.SyncFault)
-        emit(onSyncError(syncResult.e))
+        emit(syncError(syncResult.e))
 
     localData.collect {
-        emit(onResult(it))
+        emit(result(it))
     }
 }
 

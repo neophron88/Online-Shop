@@ -1,17 +1,17 @@
 package com.neophron.account.domain.result
 
 sealed class SignInResult {
-
     object Success : SignInResult()
+    class Error(val type: ErrorType) : SignInResult()
+}
 
-    sealed class Error : SignInResult() {
-        object EmptyFirstName : Error()
-        object EmptyLastName : Error()
-        object EmptyEmail : Error()
-        class NoValidEmail(val correctExample: String?) : Error()
-        object EmptyPassword : Error()
-        object TooShortPassword : Error()
-        class Unknown(e: Exception) : Error()
-    }
+sealed class SignInErrorType:ErrorType() {
+    object EmptyFirstName : SignInErrorType()
+    object EmptyLastName : SignInErrorType()
+    object EmptyEmail : SignInErrorType()
+    object NoValidEmail : SignInErrorType()
+    object EmptyPassword : SignInErrorType()
+    object TooShortPassword : SignInErrorType()
+    object AccountAlreadyExists : SignInErrorType()
 
 }

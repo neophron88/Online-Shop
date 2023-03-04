@@ -6,6 +6,18 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.neophron.auth.sign_in.SignInFragment"
-        android:label="SignInFragment" />
+        android:name="com.neophron.auth.presentation.sign_in.SignInFragment"
+        android:label="SignInFragment">
+        <action
+            android:id="@+id/action_signInFragment_to_logInFragment"
+            app:destination="@id/logInFragment"
+            app:enterAnim="@anim/from_right_to_center"
+            app:exitAnim="@anim/from_center_to_left"
+            app:popEnterAnim="@anim/from_left_to_center"
+            app:popExitAnim="@anim/from_center_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.neophron.auth.presentation.log_in.LogInFragment"
+        android:label="LogInFragment" />
 </navigation>

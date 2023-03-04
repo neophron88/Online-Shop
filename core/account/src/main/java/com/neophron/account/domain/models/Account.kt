@@ -4,5 +4,5 @@ data class Account(
     val firstName: String,
     val lastName: String,
     val email: String,
-    val avatarUrl: String
+    val avatarUrl: String?
 )

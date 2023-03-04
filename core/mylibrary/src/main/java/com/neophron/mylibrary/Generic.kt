@@ -11,3 +11,7 @@ inline fun <reified T> Any.takeAs(): T =
 
 fun <T> T?.require(errMsg: String = "The value is required"): T =
     this ?: throw IllegalStateException(errMsg)
+
+
+inline fun <reified T> T.throwNotHandled(): Nothing =
+    throw IllegalStateException("${T::class.java} is not handled")

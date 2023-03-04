@@ -4,13 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.neophron.database.account.AccountDao
+import com.neophron.database.account.models.AccountEntity
 
 @Database(
     version = 1,
-    entities = [],
+    entities = [AccountEntity::class],
     exportSchema = true
 )
 abstract class OnlineShopDatabase : RoomDatabase() {
+
+
+    abstract fun getAccountDao(): AccountDao
 
     companion object {
         @Volatile

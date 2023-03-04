@@ -22,6 +22,7 @@ dependencies {
     implementation project(':core:network')
     implementation project(':core:feature')
     implementation project(':core:mylibrary')
+    implementation project(':core:account')
 
     implementation project(':feature:splash')
     implementation project(':feature:auth')

@@ -20,6 +20,6 @@
     </fragment>
     <fragment
         android:id="@+id/authHostFragment"
-        android:name="com.neophron.auth.AuthHostFragment"
+        android:name="com.neophron.auth.presentation.AuthHostFragment"
         android:label="AuthHostFragment" />
 </navigation>

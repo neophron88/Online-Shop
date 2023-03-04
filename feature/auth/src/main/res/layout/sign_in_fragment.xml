@@ -83,6 +83,8 @@
         <TextView
             android:id="@+id/go_to_log_in"
             style="@style/FillingForm.WrapContent.WidthMatchP.HelperTextForm"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             android:text="@string/already_have_an_account"
             android:textAppearance="@style/Label2TextAppearanceRegular"
             android:textColor="@color/gray_500" />

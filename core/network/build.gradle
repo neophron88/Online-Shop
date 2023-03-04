@@ -9,9 +9,9 @@ android {
 dependencies {
     implementation project(':core:database')
 
-    implementation libs.okhttp
-    implementation libs.retrofit
-    implementation libs.moshi
-    implementation libs.okhttp.logging.interceptor
+    api libs.okhttp
+    api libs.retrofit
+    api libs.moshi
+    api libs.okhttp.logging.interceptor
 
 }

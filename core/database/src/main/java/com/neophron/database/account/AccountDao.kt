@@ -11,11 +11,11 @@ interface AccountDao {
     suspend fun getUserAccount(userId: Long): AccountEntity?
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun signIn(accountEntity: AccountEntity): AccountEntity
+    suspend fun signIn(accountEntity: AccountEntity): Long
 
     @Query("SELECT * FROM account_table WHERE email=:email")
     suspend fun logIn(email: String): AccountEntity?
 
-    @Update
+    @Update(entity = AccountEntity::class)
     suspend fun changeAvatar(avatarTuple: AvatarTuple)
 }

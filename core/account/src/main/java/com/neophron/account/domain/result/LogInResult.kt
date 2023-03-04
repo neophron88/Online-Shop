@@ -1,14 +1,15 @@
 package com.neophron.account.domain.result
 
 sealed class LogInResult {
-
     object Success : LogInResult()
+    class Error(val type: ErrorType) : LogInResult()
+}
 
-    sealed class Error : LogInResult() {
-        object EmptyEmail : Error()
-        class NoValidEmail(val correctExample: String) : Error()
-        object EmptyPassword : Error()
-        object TooShortPassword : Error()
-        class Unknown(e: Exception) : Error()
-    }
+sealed class LogInErrorType:ErrorType() {
+    object EmptyEmail : ErrorType()
+    object NoValidEmail : ErrorType()
+    object EmptyPassword : ErrorType()
+    object TooShortPassword : ErrorType()
+    object NoSuchAccount : ErrorType()
+    object PasswordMisMatch : ErrorType()
 }

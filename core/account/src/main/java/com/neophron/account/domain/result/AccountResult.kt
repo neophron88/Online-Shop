@@ -4,14 +4,12 @@ import com.neophron.account.domain.models.Account
 
 
 sealed class AccountResult {
-
     class Success(val account: Account) : AccountResult()
-
     object Pending : AccountResult()
+    class Error(val type: ErrorType) : AccountResult()
+}
 
-    sealed class Error : AccountResult() {
-        object NoAuthorized : Error()
-        class Unknown(e: Exception) : Error()
-    }
+sealed class AccountErrorType : ErrorType() {
+    object NoAuthorized : AccountErrorType()
 }
 

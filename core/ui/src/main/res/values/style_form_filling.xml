@@ -22,8 +22,8 @@
     </style>
 
     <style name="FillingForm.WrapContent.WidthMatchP.HelperTextForm">
-        <item name="android:layout_marginTop">12dp</item>
-        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
     </style>
 
 

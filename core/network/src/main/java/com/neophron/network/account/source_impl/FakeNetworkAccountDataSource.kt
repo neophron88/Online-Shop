@@ -1,11 +1,12 @@
 package com.neophron.network.account.source_impl
 
 import android.database.sqlite.SQLiteConstraintException
+import android.util.Log
 import com.neophron.database.account.AccountDao
 import com.neophron.database.account.models.AccountEntity
 import com.neophron.database.account.models.AvatarTuple
 import com.neophron.mylibrary.map
-import com.neophron.network.UserToken
+import com.neophron.network.UserTokenStore
 import com.neophron.network.account.source.AccountNetworkDataSource
 import com.neophron.network.account.source.models.AccountResponse
 import com.neophron.network.account.source.models.ChangeAvatarBody
@@ -16,12 +17,12 @@ import kotlinx.coroutines.delay
 
 class FakeNetworkAccountDataSource(
     private val accountDao: AccountDao,
-    private val userToken: UserToken
+    private val userTokenStore: UserTokenStore
 ) : AccountNetworkDataSource {
 
     override suspend fun getUserAccount(): AccountResponse {
         delay(1000)
-        val userId = userToken.token ?: "-1"
+        val userId = userTokenStore.token ?: "-1"
         val accountEntity = accountDao.getUserAccount(userId.toLong())
         return accountEntity?.map { AccountResponse(firstName, lastName, email, avatarUrl) }
             ?: throw ClientSideException(code = 404)
@@ -33,9 +34,9 @@ class FakeNetworkAccountDataSource(
             val accountEntity = signInBody.map {
                 AccountEntity(0, firstName, lastName, email, password, null)
             }
-            val accountEntityAnswer = accountDao.signIn(accountEntity)
-            userToken.setToken(accountEntity.id.toString())
-            accountEntityAnswer.map { AccountResponse(firstName, lastName, email, avatarUrl) }
+            val userId = accountDao.signIn(accountEntity)
+            userTokenStore.setToken(userId.toString())
+            accountEntity.map { AccountResponse(firstName, lastName, email, avatarUrl) }
 
         } catch (e: SQLiteConstraintException) {
             throw ClientSideException(409)
@@ -45,15 +46,15 @@ class FakeNetworkAccountDataSource(
         delay(2000)
         val accountEntity = accountDao.logIn(logInBody.email) ?: throw ClientSideException(404)
         if (accountEntity.password != logInBody.password) throw ClientSideException(409)
-        userToken.setToken(accountEntity.id.toString())
+        userTokenStore.setToken(accountEntity.id.toString())
         return accountEntity.map { AccountResponse(firstName, lastName, email, avatarUrl) }
     }
 
     override suspend fun changeAvatar(changeAvatarBody: ChangeAvatarBody) {
         try {
             delay(2000)
-            val userId = userToken.token ?: "-1"
-            val avatarUrl = changeAvatarBody.file.toURI().toString()
+            val userId = userTokenStore.token ?: "-1"
+            val avatarUrl = changeAvatarBody.file?.toURI().toString()
             accountDao.changeAvatar(AvatarTuple(userId.toLong(), avatarUrl))
         } catch (e: SQLiteConstraintException) {
             throw ClientSideException(404)

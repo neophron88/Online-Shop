@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/app_graph" />
+        app:navGraph="@navigation/app_graph"
+        />
 
 
 </FrameLayout>

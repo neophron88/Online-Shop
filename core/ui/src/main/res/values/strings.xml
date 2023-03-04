@@ -2,4 +2,17 @@
     <string name="app_name">Online Shop</string>
     <string name="shopping_bag">Shopping bag</string>
 
+    <string name="server_failed">Server failed to respond</string>
+    <string name="no_connection">No Connection</string>
+
+    <string name="something_went_wrong">Something_went_wrong</string>
+
+    <string name="empty_field">Field is empty</string>
+    <string name="invalid_email">Invalid Email! Correct example "jack-hofman10@mail.ru"</string>
+    <string name="too_short_password">Too short password</string>
+    <string name="no_such_account">No such account</string>
+    <string name="incorrect_password">Incorrect password</string>
+    <string name="account_already_exists">Account with such email already exists</string>
+
+
 </resources>

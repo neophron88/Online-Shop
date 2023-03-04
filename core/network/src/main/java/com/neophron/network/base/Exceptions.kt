@@ -1,20 +1,22 @@
 package com.neophron.network.base
 
+import com.neophron.network.base.Http.BACKEND
+import com.neophron.network.base.Http.CLIENT
 import retrofit2.HttpException
 import java.io.IOException
 
 abstract class NetworkException(
-    cause: Throwable?,
+    cause: Exception?,
     code: Int?,
-) : Throwable("Network error code $code", cause)
+) : Exception("Network error code $code", cause)
 
-class ConnectionException(cause: Throwable? = null) : NetworkException(cause,null)
+class ConnectionException(cause: Exception? = null) : NetworkException(cause,null)
 
-class BackendSideException(val code: Int, cause: Throwable? = null) : NetworkException(cause, code)
+class BackendSideException(val code: Int, cause: Exception? = null) : NetworkException(cause, code)
 
-class ClientSideException(val code: Int, cause: Throwable? = null) : NetworkException(cause, code)
+class ClientSideException(val code: Int, cause: Exception? = null) : NetworkException(cause, code)
 
-class UnknownNetworkException(val code: Int, cause: Throwable? = null) : NetworkException(cause, code)
+class UnknownNetworkException(val code: Int, cause: Exception? = null) : NetworkException(cause, code)
 
 
 internal inline fun <T> wrapRetrofitExceptions(
@@ -30,7 +32,7 @@ internal inline fun <T> wrapRetrofitExceptions(
 
 }
 
-internal fun parseHttpCodeToException(code: Int, cause: Throwable): NetworkException =
+internal fun parseHttpCodeToException(code: Int, cause: Exception): NetworkException =
     if (code >= BACKEND)
         BackendSideException(code, cause)
     else if (code in CLIENT until BACKEND)
