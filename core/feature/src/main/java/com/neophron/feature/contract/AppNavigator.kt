@@ -9,4 +9,6 @@ interface AppNavigator {
     fun navigateFromSplashToMain(args: Bundle? = null)
 
     fun navigateFromAuthToMain(args: Bundle? = null)
+
+    fun navigateToSplashAndPopAllScreens()
 }

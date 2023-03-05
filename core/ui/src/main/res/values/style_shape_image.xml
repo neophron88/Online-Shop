@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ImageRoundedSquare">
+        <item name="cornerSize">48%</item>
+    </style>
+
+
+</resources>
+
+

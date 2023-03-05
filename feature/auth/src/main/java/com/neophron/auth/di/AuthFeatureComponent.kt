@@ -2,8 +2,8 @@ package com.neophron.auth.di
 
 import com.neophron.account.domain.usecases.LogInUseCase
 import com.neophron.account.domain.usecases.SignInUseCase
-import com.neophron.auth.di.viewModel.ProvideLogInAssistedFactory
-import com.neophron.auth.di.viewModel.ProvideSignInAssistedFactory
+import com.neophron.auth.di.viewModel.LogInAssistedFactoryProvider
+import com.neophron.auth.di.viewModel.SignInAssistedFactoryProvider
 import dagger.Component
 
 
@@ -11,7 +11,9 @@ import dagger.Component
 @Component(
     dependencies = [AuthFeatureDependencies::class]
 )
-interface AuthFeatureComponent:ProvideSignInAssistedFactory,ProvideLogInAssistedFactory {
+interface AuthFeatureComponent:
+    SignInAssistedFactoryProvider,
+    LogInAssistedFactoryProvider {
 
 
     @Component.Builder

@@ -3,6 +3,7 @@ package com.neophron.onlineshop
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.navOptions
 import com.neophron.feature.contract.AppNavigator
 import com.neophron.mylibrary.ktx.findNavController
 
@@ -23,10 +24,16 @@ class OnlineShopActivity : AppCompatActivity(), AppNavigator {
     }
 
     override fun navigateFromSplashToMain(args: Bundle?) {
-        TODO("Not yet implemented")
+        navController.navigate(R.id.action_splashFragment_to_mainFragment)
     }
 
     override fun navigateFromAuthToMain(args: Bundle?) {
-        TODO("Not yet implemented")
+        navController.navigate(R.id.action_authHostFragment_to_mainFragment)
+    }
+
+    override fun navigateToSplashAndPopAllScreens() {
+        navController.navigate(R.id.splashFragment, null, navOptions {
+            popUpTo(R.id.splashFragment) { inclusive = true }
+        })
     }
 }

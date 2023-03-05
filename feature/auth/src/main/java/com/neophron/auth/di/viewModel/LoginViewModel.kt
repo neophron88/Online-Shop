@@ -4,7 +4,7 @@ import com.neophron.auth.presentation.log_in.LogInViewModel
 import dagger.assisted.AssistedFactory
 
 
-interface ProvideLogInAssistedFactory {
+interface LogInAssistedFactoryProvider {
     fun getLogInFactory(): LogInAssistedFactory
 }
 

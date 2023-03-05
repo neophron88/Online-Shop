@@ -34,7 +34,7 @@ inline fun <reified T> Fragment.findParentAs(): T {
 
     }
 
-    return target ?: error("No fragment parents, implement ${T::class}")
+    return target ?: error("No fragment parents, implemented ${T::class}")
 }
 
 

@@ -1,6 +1,5 @@
 package com.neophron.account.data
 
-import android.util.Log
 import com.neophron.account.data.helper.*
 import com.neophron.account.data.preference.AccountPreference
 import com.neophron.account.domain.models.ChangeAvatarData
@@ -77,7 +76,9 @@ internal class AccountRepositoryImpl(
     override suspend fun changeAvatar(changeAvatarData: ChangeAvatarData): ChangeAvatarResult =
         wrapNetworkRequest(
             request = {
-                networkSource.changeAvatar(ChangeAvatarBody(changeAvatarData.file))
+                val avatarUrlResponse =
+                    networkSource.changeAvatar(ChangeAvatarBody(changeAvatarData.file))
+                accountPreference.setAvatarUrl(avatarUrlResponse.avatarUrl)
                 ChangeAvatarResult.Success
             },
             onError = { ChangeAvatarResult.Error(it.toErrorType()) }

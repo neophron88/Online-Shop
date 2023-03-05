@@ -10,5 +10,6 @@ dependencies {
     implementation project(':core:database')
     implementation project(':core:network')
     implementation project(':core:mylibrary')
+    implementation project(':core:ui')
 }
 

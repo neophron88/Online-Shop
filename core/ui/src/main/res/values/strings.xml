@@ -13,6 +13,9 @@
     <string name="no_such_account">No such account</string>
     <string name="incorrect_password">Incorrect password</string>
     <string name="account_already_exists">Account with such email already exists</string>
+    <string name="navigate_up">navigate up</string>
 
+    <string name="test_name">Satria Adhi Pradana</string>
+    <string name="icon">icon</string>
 
 </resources>

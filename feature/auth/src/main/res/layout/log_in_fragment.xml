@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auth_edit_text_height"
                 android:hint="@string/email"
+                android:paddingStart="@dimen/text_input_icon_size"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -39,6 +40,7 @@
                 android:id="@+id/edit_password"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auth_edit_text_height"
+                android:paddingStart="@dimen/text_input_icon_size"
                 android:hint="@string/password"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"

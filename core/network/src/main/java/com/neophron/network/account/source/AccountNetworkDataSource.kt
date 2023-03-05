@@ -1,9 +1,6 @@
 package com.neophron.network.account.source
 
-import com.neophron.network.account.source.models.AccountResponse
-import com.neophron.network.account.source.models.ChangeAvatarBody
-import com.neophron.network.account.source.models.LogInBody
-import com.neophron.network.account.source.models.SignInBody
+import com.neophron.network.account.source.models.*
 
 interface AccountNetworkDataSource {
 
@@ -13,6 +10,6 @@ interface AccountNetworkDataSource {
 
     suspend fun logIn(logInBody: LogInBody): AccountResponse
 
-    suspend fun changeAvatar(changeAvatarBody: ChangeAvatarBody)
+    suspend fun changeAvatar(changeAvatarBody: ChangeAvatarBody):AvatarUrlResponse
 
 }

@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auth_edit_text_height"
                 android:hint="@string/first_name"
+                android:paddingStart="@dimen/text_input_icon_size"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -39,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auth_edit_text_height"
                 android:hint="@string/last_name"
+                android:paddingStart="@dimen/text_input_icon_size"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -54,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auth_edit_text_height"
                 android:hint="@string/email"
+                android:paddingStart="@dimen/text_input_icon_size"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -70,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auth_edit_text_height"
                 android:hint="@string/password"
+                android:paddingStart="@dimen/text_input_icon_size"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 tools:ignore="TouchTargetSizeCheck" />

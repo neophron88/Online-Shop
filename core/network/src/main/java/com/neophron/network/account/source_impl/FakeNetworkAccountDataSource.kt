@@ -1,17 +1,13 @@
 package com.neophron.network.account.source_impl
 
 import android.database.sqlite.SQLiteConstraintException
-import android.util.Log
 import com.neophron.database.account.AccountDao
 import com.neophron.database.account.models.AccountEntity
 import com.neophron.database.account.models.AvatarTuple
 import com.neophron.mylibrary.map
 import com.neophron.network.UserTokenStore
 import com.neophron.network.account.source.AccountNetworkDataSource
-import com.neophron.network.account.source.models.AccountResponse
-import com.neophron.network.account.source.models.ChangeAvatarBody
-import com.neophron.network.account.source.models.LogInBody
-import com.neophron.network.account.source.models.SignInBody
+import com.neophron.network.account.source.models.*
 import com.neophron.network.base.ClientSideException
 import kotlinx.coroutines.delay
 
@@ -50,16 +46,18 @@ class FakeNetworkAccountDataSource(
         return accountEntity.map { AccountResponse(firstName, lastName, email, avatarUrl) }
     }
 
-    override suspend fun changeAvatar(changeAvatarBody: ChangeAvatarBody) {
+    override suspend fun changeAvatar(changeAvatarBody: ChangeAvatarBody): AvatarUrlResponse {
         try {
             delay(2000)
             val userId = userTokenStore.token ?: "-1"
-            val avatarUrl = changeAvatarBody.file?.toURI().toString()
+            val avatarUrl = changeAvatarBody.file?.path
             accountDao.changeAvatar(AvatarTuple(userId.toLong(), avatarUrl))
+            return AvatarUrlResponse(avatarUrl)
         } catch (e: SQLiteConstraintException) {
             throw ClientSideException(404)
         }
     }
+
 }
 
 

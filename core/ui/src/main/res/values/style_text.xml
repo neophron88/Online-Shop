@@ -5,11 +5,27 @@
     <style name="Headline1TextAppearanceSemiBold" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">36sp</item>
+        <item name="android:letterSpacing">0.001</item>
+
     </style>
 
     <style name="Headline2TextAppearanceSemiBold" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.001</item>
+
+    </style>
+
+    <style name="Headline2TextAppearanceBold" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.001</item>
+    </style>
+
+    <style name="Headline2TextAppearanceBold.ToolbarTitle">
+        <item name="android:ellipsize">end</item>
+        <item name="maxLines">1</item>
+        <item name="android:letterSpacing">0.001</item>
 
     </style>
 
@@ -34,7 +50,7 @@
     </style>
 
     <style name="Title3TextAppearanceSemiBold" parent="TextAppearance.AppCompat.Title">
-        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">18sp</item>
     </style>
 
@@ -57,6 +73,7 @@
         <item name="fontFamily">@font/montserrat_medium</item>
         <item name="android:textSize">16sp</item>
     </style>
+
     <style name="Label1TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">16sp</item>
@@ -70,8 +87,18 @@
     <style name="Label2TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">14sp</item>
-
     </style>
+
+    <style name="Label3TextAppearanceRegular" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Label3TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 
 
 </resources>

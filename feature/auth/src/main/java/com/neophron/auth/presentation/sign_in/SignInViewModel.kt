@@ -1,6 +1,5 @@
 package com.neophron.auth.presentation.sign_in
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,7 @@ import com.neophron.account.domain.result.ErrorType
 import com.neophron.account.domain.result.SignInErrorType
 import com.neophron.account.domain.result.SignInResult
 import com.neophron.account.domain.usecases.SignInUseCase
-import com.neophron.auth.presentation.helper.toStringRes
+import com.neophron.account.presentation.toStringRes
 import com.neophron.mylibrary.single_use_data.MutableSingleUseData
 import com.neophron.mylibrary.single_use_data.SingleUseData
 import com.neophron.mylibrary.throwNotHandled

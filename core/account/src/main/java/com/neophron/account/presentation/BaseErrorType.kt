@@ -1,4 +1,4 @@
-package com.neophron.auth.presentation.helper
+package com.neophron.account.presentation
 
 import androidx.annotation.StringRes
 import com.neophron.account.domain.result.BaseErrorType

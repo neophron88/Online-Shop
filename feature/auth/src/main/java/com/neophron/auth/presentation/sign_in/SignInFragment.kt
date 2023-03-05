@@ -1,22 +1,23 @@
 package com.neophron.auth.presentation.sign_in
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.neophron.auth.R
 import com.neophron.auth.databinding.SignInFragmentBinding
-import com.neophron.auth.di.viewModel.ProvideSignInAssistedFactory
+import com.neophron.auth.di.viewModel.SignInAssistedFactoryProvider
+import com.neophron.feature.contract.AppNavigator
 import com.neophron.feature.contract.DependencyProvider
 import com.neophron.feature.contract.extractDependency
-import com.neophron.feature.contract.viewModelProvider
+import com.neophron.feature.viewModelFactory.viewModelProvider
 import com.neophron.mylibrary.ktx.disableErrorWhenTyping
 import com.neophron.mylibrary.ktx.fragment.findParentAs
 import com.neophron.mylibrary.ktx.fragment.getStringOrNull
 import com.neophron.mylibrary.ktx.fragment.viewLifeCycle
 import com.neophron.mylibrary.ktx.showToast
+import com.neophron.mylibrary.takeAs
 import com.neophron.mylibrary.viewbinding_delegate.viewBindings
 
 class SignInFragment : Fragment(R.layout.sign_in_fragment) {
@@ -27,7 +28,7 @@ class SignInFragment : Fragment(R.layout.sign_in_fragment) {
 
     private val viewModel: SignInViewModel by viewModelProvider {
         findParentAs<DependencyProvider>()
-            .extractDependency<ProvideSignInAssistedFactory>()
+            .extractDependency<SignInAssistedFactoryProvider>()
             .getSignInFactory()
             .create()
     }
@@ -87,9 +88,8 @@ class SignInFragment : Fragment(R.layout.sign_in_fragment) {
 
     private fun observeUiEvent() = viewModel.uiEvent.observe(viewLifecycleOwner) {
         when (it) {
-            is SignInUiEvent.SignInSuccess -> {
-                Log.d("it0088", "observeUiEvent: successsignin")
-            }
+            is SignInUiEvent.SignInSuccess ->
+                requireActivity().takeAs<AppNavigator>().navigateFromAuthToMain()
             is SignInUiEvent.ToastMessage -> showToast(it.messageRes)
         }
     }

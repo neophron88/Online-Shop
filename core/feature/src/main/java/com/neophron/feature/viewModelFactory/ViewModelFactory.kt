@@ -1,4 +1,4 @@
-package com.neophron.feature.contract
+package com.neophron.feature.viewModelFactory
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels

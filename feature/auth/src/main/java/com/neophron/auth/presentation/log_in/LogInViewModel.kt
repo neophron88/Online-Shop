@@ -10,7 +10,7 @@ import com.neophron.account.domain.result.ErrorType
 import com.neophron.account.domain.result.LogInErrorType
 import com.neophron.account.domain.result.LogInResult
 import com.neophron.account.domain.usecases.LogInUseCase
-import com.neophron.auth.presentation.helper.toStringRes
+import com.neophron.account.presentation.toStringRes
 import com.neophron.mylibrary.single_use_data.MutableSingleUseData
 import com.neophron.mylibrary.single_use_data.SingleUseData
 import com.neophron.mylibrary.throwNotHandled
