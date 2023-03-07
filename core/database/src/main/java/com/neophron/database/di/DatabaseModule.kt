@@ -1,7 +1,7 @@
 package com.neophron.database.di
 
 import android.app.Application
-import com.neophron.database.OnlineShopDatabase
+import com.neophron.database.base.OnlineShopDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

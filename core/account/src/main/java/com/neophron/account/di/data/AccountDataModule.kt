@@ -5,7 +5,7 @@ import com.neophron.account.data.preference.AccountPreferenceImpl
 import com.neophron.account.data.AccountRepositoryImpl
 import com.neophron.account.data.preference.AccountPreference
 import com.neophron.account.domain.repositories.AccountRepository
-import com.neophron.network.UserTokenStore
+import com.neophron.network.base.UserTokenStore
 import com.neophron.network.account.source.AccountNetworkDataSource
 import dagger.Module
 import dagger.Provides

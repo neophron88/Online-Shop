@@ -1,4 +1,4 @@
-package com.neophron.network
+package com.neophron.network.base
 
 import android.app.Application
 import android.content.Context

@@ -1,8 +1,8 @@
 package com.neophron.network.di
 
 import android.app.Application
-import com.neophron.network.UserTokenStore
-import com.neophron.network.UserTokenStoreImpl
+import com.neophron.network.base.UserTokenStore
+import com.neophron.network.base.UserTokenStoreImpl
 import com.neophron.network.base.BaseUrl
 import com.squareup.moshi.Moshi
 import dagger.Module

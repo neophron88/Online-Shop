@@ -5,13 +5,13 @@ import com.neophron.database.account.AccountDao
 import com.neophron.database.account.models.AccountEntity
 import com.neophron.database.account.models.AvatarTuple
 import com.neophron.mylibrary.map
-import com.neophron.network.UserTokenStore
+import com.neophron.network.base.UserTokenStore
 import com.neophron.network.account.source.AccountNetworkDataSource
 import com.neophron.network.account.source.models.*
 import com.neophron.network.base.ClientSideException
 import kotlinx.coroutines.delay
 
-class FakeNetworkAccountDataSource(
+internal class FakeNetworkAccountDataSource(
     private val accountDao: AccountDao,
     private val userTokenStore: UserTokenStore
 ) : AccountNetworkDataSource {

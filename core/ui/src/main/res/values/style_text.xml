@@ -4,7 +4,14 @@
 
     <style name="Headline1TextAppearanceSemiBold" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0.001</item>
+
+    </style>
+
+    <style name="Headline1TextAppearanceBold" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">28sp</item>
         <item name="android:letterSpacing">0.001</item>
 
     </style>

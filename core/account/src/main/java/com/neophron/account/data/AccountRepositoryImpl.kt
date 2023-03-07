@@ -8,7 +8,7 @@ import com.neophron.account.domain.models.SignInData
 import com.neophron.account.domain.repositories.AccountRepository
 import com.neophron.account.domain.result.*
 import com.neophron.mylibrary.offline_first.offlineFirst
-import com.neophron.network.UserTokenStore
+import com.neophron.network.base.UserTokenStore
 import com.neophron.network.account.source.AccountNetworkDataSource
 import com.neophron.network.account.source.models.ChangeAvatarBody
 import kotlinx.coroutines.CoroutineScope
@@ -81,7 +81,11 @@ internal class AccountRepositoryImpl(
                 accountPreference.setAvatarUrl(avatarUrlResponse.avatarUrl)
                 ChangeAvatarResult.Success
             },
-            onError = { ChangeAvatarResult.Error(it.toErrorType()) }
+            onError = {
+                ChangeAvatarResult.Error(
+                    it.toErrorType(on404NotFound = { AccountErrorType.NoAuthorized.also { logOut() } })
+                )
+            }
         )
 
     override suspend fun logOut(): LogOutResult {
