@@ -12,4 +12,6 @@ class ItemDelegate<I : Any> @Deprecated("") constructor(
     @LayoutRes val layout: Int,
     val diffUtil: DiffUtil.ItemCallback<I>,
     val itemViewHolderProducer: ItemViewHolderProducer<I>
-)
+) {
+    val viewType: Int get() = layout
+}

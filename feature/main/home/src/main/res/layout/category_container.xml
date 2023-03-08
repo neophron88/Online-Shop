@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_mobile"
+        app:title="@string/phones" />
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_headphones"
+        app:title="@string/headphones" />
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_joystick"
+        app:title="@string/games" />
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_car"
+        app:title="@string/cars" />
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_mobile"
+        app:title="@string/phones" />
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_bed"
+        app:title="@string/furniture" />
+
+    <com.neophron.home.presentation.ui.customView.CategoryView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_robot_head"
+        app:title="@string/kids" />
+
+</LinearLayout>

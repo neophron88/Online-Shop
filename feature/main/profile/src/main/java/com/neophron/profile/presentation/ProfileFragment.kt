@@ -12,9 +12,9 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.neophron.feature.contract.DependencyProvider
-import com.neophron.feature.contract.MainBottomNavHeightProvider
-import com.neophron.feature.contract.extractDependency
+import com.neophron.feature.contract.common.DependencyProvider
+import com.neophron.feature.contract.common.extractDependency
+import com.neophron.feature.contract.main_feature.MainBottomNavHeightProvider
 import com.neophron.feature.viewModelFactory.viewModelProvider
 import com.neophron.mylibrary.ktx.fragment.findParentAs
 import com.neophron.mylibrary.ktx.showToast

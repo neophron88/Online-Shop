@@ -31,10 +31,13 @@ dependencies {
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.android.material
+    implementation libs.lifecycle.runtime
+    implementation libs.lifecycle.runtime.livedata
+    implementation libs.lifecycle.runtime.viewModel
+    implementation libs.coroutines
 
     implementation libs.dagger
     kapt libs.dagger.compiler
-
 
     testImplementation libs.junit.core
     androidTestImplementation libs.junit.test

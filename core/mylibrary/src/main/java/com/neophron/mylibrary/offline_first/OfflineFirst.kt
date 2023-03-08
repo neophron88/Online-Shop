@@ -13,7 +13,7 @@ inline fun <LOCAL, NETWORK, RESULT> offlineFirst(
     crossinline syncWithNetwork: suspend () -> NETWORK?,
     crossinline updateLocalData: suspend (NETWORK) -> Unit,
     crossinline pending: suspend () -> RESULT,
-    crossinline syncError: suspend (e: Exception) -> RESULT,
+    crossinline syncedError: suspend (e: Exception) -> RESULT,
     crossinline result: suspend (LOCAL?) -> RESULT,
 ): Flow<RESULT> = flow {
 
@@ -34,7 +34,7 @@ inline fun <LOCAL, NETWORK, RESULT> offlineFirst(
     }.await()
 
     if (syncResult is SyncResult.SyncFault)
-        emit(syncError(syncResult.e))
+        emit(syncedError(syncResult.e))
 
     localData.collect {
         emit(result(it))

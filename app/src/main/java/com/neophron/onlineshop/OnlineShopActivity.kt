@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.navOptions
-import com.neophron.feature.contract.AppNavigator
+import com.neophron.feature.contract.app.AppNavigator
 import com.neophron.mylibrary.ktx.findNavController
 
 class OnlineShopActivity : AppCompatActivity(), AppNavigator {

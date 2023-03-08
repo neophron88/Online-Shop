@@ -75,7 +75,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconDrawable="@drawable/ic_search"
-
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -87,6 +86,17 @@
             android:inputType="text"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <include layout="@layout/category_container" />
+
+    </HorizontalScrollView>
+
 
 </LinearLayout>
 

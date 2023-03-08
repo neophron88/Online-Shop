@@ -27,7 +27,7 @@ internal class AccountRepositoryImpl(
         syncWithNetwork = { networkSource.getUserAccount() },
         updateLocalData = { accountPreference.saveAccountPrefData(it.mapToAccountPrefData()) },
         pending = { AccountResult.Pending },
-        syncError = {
+        syncedError = {
             AccountResult.Error(
                 it.toErrorType(on404NotFound = { AccountErrorType.NoAuthorized.also { logOut() } })
             )

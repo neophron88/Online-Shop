@@ -10,10 +10,9 @@
     <string name="furniture">Furniture</string>
     <string name="kids">kids</string>
     <string name="view_all">View all</string>
-    <string name="dollar_pattern">%1$s $</string>
-    <string name="discount_pattern">%1$s% off</string>
-
-
+    <string name="dollar_pattern">%1$d $</string>
+    <string name="discount_pattern">%1$d%2$s off</string>
+    <string name="discount_test">30% off</string>
 
 
 </resources>

@@ -1,4 +1,4 @@
-package com.neophron.feature.contract
+package com.neophron.feature.contract.app
 
 import android.os.Bundle
 

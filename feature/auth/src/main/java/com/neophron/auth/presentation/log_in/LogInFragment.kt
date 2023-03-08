@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.neophron.auth.R
 import com.neophron.auth.databinding.LogInFragmentBinding
 import com.neophron.auth.di.viewModel.LogInAssistedFactoryProvider
-import com.neophron.feature.contract.AppNavigator
+import com.neophron.feature.contract.app.AppNavigator
 import com.neophron.feature.contract.DependencyProvider
 import com.neophron.feature.contract.extractDependency
 import com.neophron.feature.viewModelFactory.viewModelProvider

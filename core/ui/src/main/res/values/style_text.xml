@@ -71,6 +71,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Title4TextAppearanceSemiBold" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
     <style name="Label1TextAppearanceRegular" parent="TextAppearance.Material3.LabelLarge">
         <item name="fontFamily">@font/montserrat_regular</item>
         <item name="android:textSize">16sp</item>

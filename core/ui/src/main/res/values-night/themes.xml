@@ -1,6 +1,6 @@
 <resources>
     <style name="Theme.OnlineShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/purple_400</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/black</item>
 

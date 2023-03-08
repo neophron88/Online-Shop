@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="154dp"
+    android:layout_height="196dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/product_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:strokeWidth=".1dp"
+        app:strokeColor="@color/purple_900"
+        app:shapeAppearance="@style/ImageCutCorners"
+        tools:src="@drawable/test_big_poster" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".65" />
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/circle_background"
+        android:contentDescription="@string/icon"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@+id/product_image"
+        app:layout_constraintEnd_toEndOf="@+id/product_image"
+        />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="12dp"
+        android:paddingStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guide_line"
+        app:layout_constraintStart_toStartOf="@+id/product_image">
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cut_corners_background"
+            android:backgroundTint="@color/gray_350_85"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="2dp"
+            android:textAppearance="@style/Label3TextAppearanceSemiBold"
+            android:textColor="@color/black"
+            tools:text="@string/kids" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textAppearance="@style/Title4TextAppearanceSemiBold"
+            android:textColor="@color/white"
+            tools:text="New balance sneakers"  />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/Label3TextAppearanceSemiBold"
+            android:textColor="@color/white"
+            tools:text="$ 33,00" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

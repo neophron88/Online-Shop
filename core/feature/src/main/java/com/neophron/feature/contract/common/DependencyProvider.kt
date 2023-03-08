@@ -1,4 +1,4 @@
-package com.neophron.feature.contract
+package com.neophron.feature.contract.common
 
 interface DependencyProvider {
 

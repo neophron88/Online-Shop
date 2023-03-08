@@ -8,9 +8,9 @@ class ProductResponse(
     @field:Json(name = "name")
     val name: String,
     @field:Json(name = "price")
-    val price: String,
+    val price: Double,
     @field:Json(name = "discount")
-    val discount: String?,
+    val discount: Int?,
     @field:Json(name = "image_url")
     val imageUrl: String,
 )
