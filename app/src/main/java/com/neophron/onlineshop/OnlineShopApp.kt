@@ -1,7 +1,7 @@
 package com.neophron.onlineshop
 
 import android.app.Application
-import com.neophron.feature.contract.DependencyProvider
+import com.neophron.feature.contract.common.DependencyProvider
 import com.neophron.onlineshop.di.DaggerOnlineShopAppComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

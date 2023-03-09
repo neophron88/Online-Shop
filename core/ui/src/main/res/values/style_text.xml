@@ -95,6 +95,11 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="Label2TextAppearanceMedium" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="Label2TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">14sp</item>
@@ -105,6 +110,10 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="Label3TextAppearanceMedium" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="Label3TextAppearanceSemiBold" parent="TextAppearance.Material3.LabelLarge">
         <item name="fontFamily">@font/montserrat_semi_bold</item>
         <item name="android:textSize">12sp</item>

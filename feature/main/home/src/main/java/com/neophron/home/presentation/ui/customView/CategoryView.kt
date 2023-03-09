@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.core.view.marginEnd
 import com.neophron.home.R
 import com.neophron.home.databinding.CategotyItemBinding
 
@@ -32,6 +33,9 @@ class CategoryView @JvmOverloads constructor(
     private fun setupLayout() {
         gravity = Gravity.CENTER
         orientation = VERTICAL
+        binding.title.setEms(4)
+        binding.title.gravity = Gravity.CENTER
+
 
     }
 

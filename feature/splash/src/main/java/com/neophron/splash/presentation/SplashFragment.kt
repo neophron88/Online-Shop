@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.neophron.feature.contract.app.AppNavigator
-import com.neophron.feature.contract.extractDependency
+import com.neophron.feature.contract.common.extractDependency
 import com.neophron.mylibrary.ktx.postDelayed
 import com.neophron.mylibrary.takeAs
 import com.neophron.splash.R

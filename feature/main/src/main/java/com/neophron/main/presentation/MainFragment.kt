@@ -5,9 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.NavigationUI
 import com.neophron.feature.contract.app.AppNavigator
-import com.neophron.feature.contract.DependencyProvider
+import com.neophron.feature.contract.common.DependencyProvider
+import com.neophron.feature.contract.common.extractDependency
 import com.neophron.feature.contract.main_feature.MainBottomNavHeightProvider
-import com.neophron.feature.contract.extractDependency
 import com.neophron.feature.viewModelFactory.viewModelProvider
 import com.neophron.main.R
 import com.neophron.main.databinding.MainFragmentBinding

@@ -7,3 +7,7 @@ plugins {
 android {
     namespace 'com.neophron.home'
 }
+
+dependencies {
+    implementation libs.recyclerview.animators
+}

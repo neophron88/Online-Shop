@@ -1,42 +1,37 @@
 package com.neophron.mylibrary.ktx
 
-import android.view.inputmethod.EditorInfo
+import android.os.Handler
+import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.EditText
-import androidx.core.widget.doAfterTextChanged
-import com.google.android.material.textfield.TextInputLayout
 
-fun EditText.behaveLikeTextView() {
-    imeOptions = EditorInfo.IME_ACTION_NONE
-    isClickable = false
-    isCursorVisible = false
-    isFocusable = false
 
-    isFocusableInTouchMode = false
-    inputType = EditorInfo.TYPE_NULL
+fun EditText.doAfterTextStopChanging(
+    delay: Long = 1000,
+    action: (text: Editable?) -> Unit
+) {
+    this.addTextChangedListener(TextWatcherDelayedImpl(delay, this, action))
 }
 
-fun EditText.limitTextAfterDot(limit: Int) {
+class TextWatcherDelayedImpl(
+    private val delay: Long,
+    private val currentEditText: EditText,
+    private val block: (s: Editable?) -> Unit
+) : TextWatcher {
 
-    this.doAfterTextChanged { editable ->
+    private val handler = Handler(Looper.getMainLooper())
 
-        val text = editable?.toString() ?: return@doAfterTextChanged
-
-        val dotIndex = text.indexOfFirst { it == '.' }
-
-        val requiredLength = dotIndex + limit + 1
-        if (dotIndex != -1 && requiredLength < text.length) {
-            this.setText(text.substring(0, requiredLength))
-            this.setSelection(this.text.length)
-        }
+    private val runnable = Runnable {
+        block(currentEditText.text)
     }
 
-}
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
 
-fun TextInputLayout.disableErrorWhenTyping() {
-    editText?.doAfterTextChanged {
-        if (error != null) {
-            error = null
-            isErrorEnabled = false
-        }
+    override fun afterTextChanged(s: Editable?) {
+        handler.removeCallbacks(runnable)
+        handler.postDelayed(runnable, delay)
     }
 }
+

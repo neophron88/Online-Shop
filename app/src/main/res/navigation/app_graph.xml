@@ -20,10 +20,6 @@
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_right_to_center"
-            app:exitAnim="@anim/from_center_to_left"
-            app:popEnterAnim="@anim/from_left_to_center"
-            app:popExitAnim="@anim/from_center_to_right"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -34,10 +30,6 @@
         <action
             android:id="@+id/action_authHostFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_right_to_center"
-            app:exitAnim="@anim/from_center_to_left"
-            app:popEnterAnim="@anim/from_left_to_center"
-            app:popExitAnim="@anim/from_center_to_right"
             app:popUpTo="@id/authHostFragment"
             app:popUpToInclusive="true" />
     </fragment>

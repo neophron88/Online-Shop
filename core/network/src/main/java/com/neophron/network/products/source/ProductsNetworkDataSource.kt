@@ -1,6 +1,7 @@
 package com.neophron.network.products.source
 
 import com.neophron.network.products.source.models.ProductResponse
+import com.neophron.network.products.source.models.SearchResponse
 
 interface ProductsNetworkDataSource {
 
@@ -8,5 +9,6 @@ interface ProductsNetworkDataSource {
 
     suspend fun loadFlashSale(): List<ProductResponse>
 
+    suspend fun searchProduct(): SearchResponse
 
 }

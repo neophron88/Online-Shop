@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="8dp">
+        android:paddingHorizontal="@dimen/product_item_start_margin"
+        android:paddingVertical="6dp">
 
         <TextView
             android:id="@+id/title"
@@ -27,7 +28,8 @@
             android:layout_weight="1"
             android:gravity="end|center"
             android:text="@string/view_all"
-            android:textAppearance="@style/Label3TextAppearanceRegular" />
+            android:textColor="@color/gray_500"
+            android:textAppearance="@style/Label3TextAppearanceMedium" />
 
     </LinearLayout>
 
@@ -38,7 +40,8 @@
         android:layout_height="wrap_content"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:minHeight="196dp" />
+        android:minHeight="208dp"
+        android:paddingEnd="@dimen/product_item_start_margin" />
 
 
 </LinearLayout>

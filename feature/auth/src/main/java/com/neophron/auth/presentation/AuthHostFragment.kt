@@ -8,8 +8,8 @@ import androidx.navigation.fragment.findNavController
 import com.neophron.auth.R
 import com.neophron.auth.databinding.AuthHostFragmentBinding
 import com.neophron.auth.di.DaggerAuthFeatureComponent
-import com.neophron.feature.contract.DependencyProvider
-import com.neophron.feature.contract.extractDependency
+import com.neophron.feature.contract.common.DependencyProvider
+import com.neophron.feature.contract.common.extractDependency
 import com.neophron.mylibrary.ktx.findNavController
 import com.neophron.mylibrary.ktx.fragment.viewLifeCycle
 import com.neophron.mylibrary.viewbinding_delegate.viewBindings

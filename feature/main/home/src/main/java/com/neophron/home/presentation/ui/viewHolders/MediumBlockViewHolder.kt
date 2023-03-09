@@ -4,8 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.neophron.home.databinding.MediumBlockItemBinding
-import com.neophron.home.domain.models.Product
 import com.neophron.home.presentation.models.MediumBlockDisplay
+import com.neophron.home.presentation.models.ProductDisplay
 import com.neophron.mylibrary.rv_adapter_delegate.ItemDelegate
 import com.neophron.mylibrary.rv_adapter_delegate.ItemViewHolder
 import com.neophron.mylibrary.rv_adapter_delegate.ItemsAdapter
@@ -14,7 +14,7 @@ import com.neophron.mylibrary.rv_adapter_delegate.ItemsAdapter
 class MediumBlockViewHolder(
     view: View,
     private val productViewPool: RecyclerView.RecycledViewPool,
-    private val productItemDelegate: ItemDelegate<Product>,
+    private val productItemDelegate: ItemDelegate<ProductDisplay>,
 ) : ItemViewHolder<MediumBlockDisplay>(view) {
 
     private val binding = MediumBlockItemBinding.bind(view)
@@ -43,6 +43,7 @@ class MediumBlockViewHolder(
             adapter = productsAdapter
             itemAnimator = null
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                .also { it.initialPrefetchItemCount = 4 }
             setRecycledViewPool(productViewPool)
         }
 

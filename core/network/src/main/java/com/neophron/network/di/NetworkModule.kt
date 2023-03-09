@@ -1,12 +1,15 @@
 package com.neophron.network.di
 
 import android.app.Application
+import com.neophron.network.base.BaseUrl
 import com.neophron.network.base.UserTokenStore
 import com.neophron.network.base.UserTokenStoreImpl
-import com.neophron.network.base.BaseUrl
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -20,7 +23,7 @@ internal class NetworkModule {
     @Provides
     @Singleton
     internal fun provideBaseUrl(): BaseUrl {
-        return BaseUrl("https://")
+        return BaseUrl("https://mocky/")
     }
 
     @Provides
@@ -36,5 +39,16 @@ internal class NetworkModule {
             .baseUrl(baseUrl.url)
             .addConverterFactory(MoshiConverterFactory.create(getMoshi()))
             .build()
+    }
+
+    private fun getOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(createLoggingInterceptor())
+            .build()
+    }
+
+    private fun createLoggingInterceptor(): Interceptor {
+        return HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 }

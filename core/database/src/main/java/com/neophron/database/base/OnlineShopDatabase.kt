@@ -6,11 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.neophron.database.account.AccountDao
 import com.neophron.database.account.models.AccountEntity
+import com.neophron.database.products.source.models.ProductEntity
 import com.neophron.database.products.source_impl.room.ProductsDao
 
 @Database(
     version = 1,
-    entities = [AccountEntity::class],
+    entities = [AccountEntity::class, ProductEntity::class],
     exportSchema = true
 )
 abstract class OnlineShopDatabase : RoomDatabase() {

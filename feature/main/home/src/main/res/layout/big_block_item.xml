@@ -10,7 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="4dp">
+        android:paddingHorizontal="@dimen/product_item_start_margin"
+        android:paddingVertical="6dp"
+        >
 
         <TextView
             android:id="@+id/title"
@@ -27,7 +29,8 @@
             android:layout_weight="1"
             android:gravity="end|center"
             android:text="@string/view_all"
-            android:textAppearance="@style/Label3TextAppearanceRegular" />
+            android:textColor="@color/gray_500"
+            android:textAppearance="@style/Label3TextAppearanceMedium" />
 
     </LinearLayout>
 
@@ -36,9 +39,10 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/product_item_start_margin"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:minHeight="245dp" />
+        android:minHeight="296dp" />
 
 
 </LinearLayout>

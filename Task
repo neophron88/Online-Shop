@@ -1,3 +1,7 @@
-2) bottom height children listen
-3) bottom nav circle back
-4) Apply motionLayout
+1) bottom height children listen and view for show toast
+2) textinput error message offseted
+3) cursor whited when after error click
+4) bottom nav circle back
+5) singleusedata distinct
+6 onfocus cahenged change icon searchedittext end close focus and when empty text close focus
+7) Apply motionLayout

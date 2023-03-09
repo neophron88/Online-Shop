@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/profile_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/top_container"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/navigate_up"
@@ -38,7 +40,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="22dp"
+            android:layout_marginEnd="12dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -54,50 +56,94 @@
                 app:strokeWidth="1.5dp"
                 tools:src="@drawable/test_profile_image" />
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="4dp"
+                android:drawablePadding="2dp"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/location"
                 android:textAppearance="@style/Label2TextAppearanceRegular"
-                android:textColor="@color/gray_500"
+                android:textColor="@color/gray_600"
                 app:drawableEndCompat="@drawable/ic_arrow_down_no_line" />
         </LinearLayout>
 
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_email"
-        android:layout_width="match_parent"
+        android:id="@+id/input_search"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="36dp"
         app:endIconDrawable="@drawable/ic_search"
-        >
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_container">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_email"
+            android:id="@+id/edit_search"
             android:layout_width="match_parent"
-            android:layout_height="28dp"
+            android:layout_height="36dp"
+            android:backgroundTint="@color/white"
             android:hint="@string/what_are_you_looking_for"
-            android:imeOptions="actionSearch"
+            android:imeOptions="actionDone"
             android:inputType="text"
+            android:textAppearance="@style/Label2TextAppearanceRegular"
+            android:textColorHint="@color/gray_600"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <HorizontalScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/category_horizontal_scroll"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
+        android:paddingVertical="22dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_search">
 
-        <include layout="@layout/category_container" />
+        <include
+            layout="@layout/category_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </HorizontalScrollView>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_horizontal_scroll">
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingBottom="120dp"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_suggestion_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_search" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
