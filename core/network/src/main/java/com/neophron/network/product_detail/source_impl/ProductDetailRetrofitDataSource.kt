@@ -1,5 +1,6 @@
 package com.neophron.network.product_detail.source_impl
 
+import com.neophron.network.base.wrapRetrofitExceptions
 import com.neophron.network.product_detail.source.ProductDetailNetworkDataSource
 import com.neophron.network.product_detail.source.models.ProductDetailResponse
 
@@ -8,5 +9,6 @@ internal class ProductDetailRetrofitDataSource(
 ) : ProductDetailNetworkDataSource {
 
     override suspend fun loadProductDetail(productId: Long): ProductDetailResponse =
-        service.loadProductDetail()
+        wrapRetrofitExceptions { service.loadProductDetail() }
+
 }

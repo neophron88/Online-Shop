@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:shapeAppearance="@style/ImageCutCorners"
+        app:shapeAppearance="@style/ImageCutCorners_8"
         app:strokeColor="@color/purple_900"
         app:strokeWidth=".001dp"
         tools:src="@drawable/test_big_poster" />

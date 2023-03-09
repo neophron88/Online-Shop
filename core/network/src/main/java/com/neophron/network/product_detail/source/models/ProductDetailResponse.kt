@@ -14,7 +14,7 @@ class ProductDetailResponse(
     @field:Json(name = "price")
     val price: Double,
     @field:Json(name = "colors")
-    val colors: ColorsData,
+    val colors: List<String>,
     @field:Json(name = "image_urls")
-    val imageUrls: ImageUrlsData
+    val imageUrls: List<String>
 )

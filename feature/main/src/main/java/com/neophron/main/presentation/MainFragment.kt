@@ -8,6 +8,7 @@ import com.neophron.feature.contract.app.AppNavigator
 import com.neophron.feature.contract.common.DependencyProvider
 import com.neophron.feature.contract.common.extractDependency
 import com.neophron.feature.contract.main_feature.MainBottomNavHeightProvider
+import com.neophron.feature.contract.main_feature.MainNavigator
 import com.neophron.feature.viewModelFactory.viewModelProvider
 import com.neophron.main.R
 import com.neophron.main.databinding.MainFragmentBinding
@@ -19,6 +20,7 @@ import com.neophron.mylibrary.viewbinding_delegate.viewBindings
 class MainFragment :
     Fragment(R.layout.main_fragment),
     MainBottomNavHeightProvider,
+    MainNavigator,
     DependencyProvider {
 
 
@@ -59,6 +61,10 @@ class MainFragment :
 
     override fun getBottomNavHeight(): Int =
         binding.bottomNavigationView.height
+
+    override fun navigateToProductDetail(args: Bundle?) {
+        childNavController.navigate(com.neophron.product_detail.R.id.product_detail_graph, args)
+    }
 
 
 }

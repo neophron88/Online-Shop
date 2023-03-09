@@ -1,7 +1,9 @@
 package com.neophron.home.presentation.ui
 
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
+import com.neophron.feature.contract.main_feature.MainNavigator
 import com.neophron.home.R
 import com.neophron.home.presentation.models.BigBlockDisplay
 import com.neophron.home.presentation.models.MediumBlockDisplay
@@ -10,6 +12,7 @@ import com.neophron.home.presentation.ui.viewHolders.BigBlockViewHolder
 import com.neophron.home.presentation.ui.viewHolders.BigProductItemViewHolder
 import com.neophron.home.presentation.ui.viewHolders.MediumBlockViewHolder
 import com.neophron.home.presentation.ui.viewHolders.MediumProductItemViewHolder
+import com.neophron.mylibrary.ktx.fragment.findParentAs
 import com.neophron.mylibrary.rv_adapter_delegate.ItemDelegate
 import com.neophron.mylibrary.rv_adapter_delegate.ItemDiffUtil
 import com.neophron.mylibrary.rv_adapter_delegate.ItemsAdapter
@@ -59,10 +62,10 @@ private fun HomeFragment.createMediumBlockViewHolder(view: View) = MediumBlockVi
     )
 )
 
-private fun HomeFragment.navigateToProductDetail(productId: Long) = Unit
-//    findParentAs<MainNavigator>()
-//        .navigateToProductDetail(
-//            bundleOf(MainNavigator.PRODUCT_ID to productId)
-//        )
+private fun HomeFragment.navigateToProductDetail(productId: Long) =
+    findParentAs<MainNavigator>()
+        .navigateToProductDetail(
+            bundleOf(MainNavigator.PRODUCT_ID to productId)
+        )
 
 

@@ -1,6 +1,5 @@
 package com.neophron.home.data
 
-import com.neophron.account.data.helper.wrapNetworkRequest
 import com.neophron.database.products.source.ProductsLocalDataSource
 import com.neophron.database.products.source.models.ProductsQuery
 import com.neophron.database.products.source.models.RefreshQuery
@@ -13,6 +12,7 @@ import com.neophron.home.domain.repositories.ProductsRepository
 import com.neophron.home.domain.result.BaseErrorType
 import com.neophron.home.domain.result.ProductResult
 import com.neophron.home.domain.result.SearchResult
+import com.neophron.mylibrary.ktx.tryCatch
 import com.neophron.mylibrary.offline_first.offlineFirst
 import com.neophron.network.products.source.ProductsNetworkDataSource
 import com.neophron.network.products.source.models.ProductResponse
@@ -40,8 +40,8 @@ class ProductsOfflineFirstRepositoryImpl(
         )
 
     override suspend fun searchProducts(searchQuery: SearchQuery): SearchResult =
-        wrapNetworkRequest(
-            request = {
+        tryCatch(
+            action = {
                 val words = network.searchProduct().words
                 val filteredWords = words.filter { it.startsWith(searchQuery.search, true) }
                 SearchResult.Success(filteredWords)

@@ -4,8 +4,16 @@
         <item name="cornerSize">48%</item>
     </style>
 
-    <style name="ImageCutCorners">
+
+    <style name="ImageCutCorners_12">
+        <item name="cornerSize">12%</item>
+    </style>
+    <style name="ImageCutCorners_8">
         <item name="cornerSize">8%</item>
+    </style>
+
+    <style name="ImageCutCorners_4">
+        <item name="cornerSize">4%</item>
     </style>
 
 

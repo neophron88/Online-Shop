@@ -9,7 +9,11 @@ import com.neophron.home.di.HomeAssistedFactoryProvider
 import com.neophron.home.di.HomeDataModule
 import com.neophron.home.di.HomeDomainModule
 import com.neophron.home.di.HomePresentationModule
+import com.neophron.network.product_detail.source.ProductDetailNetworkDataSource
 import com.neophron.network.products.source.ProductsNetworkDataSource
+import com.neophron.product_detail.di.ProductDetailAssistedFactoryProvider
+import com.neophron.product_detail.di.ProductDetailDataModule
+import com.neophron.product_detail.di.ProductDetailDomainModule
 import com.neophron.profile.di.ProfileAssistedFactoryProvider
 import dagger.Component
 import kotlinx.coroutines.CoroutineScope
@@ -18,13 +22,17 @@ import kotlinx.coroutines.CoroutineScope
 @MainFeatureScope
 @Component(
     dependencies = [MainFeatureDependencies::class],
-    modules = [HomeDataModule::class, HomeDomainModule::class, HomePresentationModule::class],
+    modules = [
+        HomeDataModule::class, HomeDomainModule::class, HomePresentationModule::class,
+        ProductDetailDataModule::class, ProductDetailDomainModule::class
+    ]
 
-    )
+)
 interface MainFeatureComponent :
     MainAssistedFactoryProvider,
     HomeAssistedFactoryProvider,
-    ProfileAssistedFactoryProvider {
+    ProfileAssistedFactoryProvider,
+    ProductDetailAssistedFactoryProvider {
 
     @Component.Builder
     interface Builder {
@@ -46,6 +54,8 @@ interface MainFeatureDependencies {
     fun getProductsLocalDataSource(): ProductsLocalDataSource
 
     fun getProductsNetworkDataSource(): ProductsNetworkDataSource
+
+    fun getProductDetailNetworkDataSource(): ProductDetailNetworkDataSource
 
     fun getLongLiveScope(): CoroutineScope
 

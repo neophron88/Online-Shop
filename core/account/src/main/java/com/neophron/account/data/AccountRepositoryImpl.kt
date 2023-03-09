@@ -7,10 +7,11 @@ import com.neophron.account.domain.models.LogInData
 import com.neophron.account.domain.models.SignInData
 import com.neophron.account.domain.repositories.AccountRepository
 import com.neophron.account.domain.result.*
+import com.neophron.mylibrary.ktx.tryCatch
 import com.neophron.mylibrary.offline_first.offlineFirst
-import com.neophron.network.base.UserTokenStore
 import com.neophron.network.account.source.AccountNetworkDataSource
 import com.neophron.network.account.source.models.ChangeAvatarBody
+import com.neophron.network.base.UserTokenStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 
@@ -41,8 +42,8 @@ internal class AccountRepositoryImpl(
     override suspend fun signIn(signInData: SignInData): SignInResult {
         val signInDataValidation = signInData.validate()
         if (signInDataValidation is SignInResult.Error) return signInDataValidation
-        return wrapNetworkRequest(
-            request = {
+        return tryCatch(
+            action = {
                 val accountResponse = networkSource.signIn(signInData.mapToSignInBody())
                 accountPreference.saveAccountPrefData(accountResponse.mapToAccountPrefData())
                 SignInResult.Success
@@ -57,8 +58,8 @@ internal class AccountRepositoryImpl(
     override suspend fun logIn(logInData: LogInData): LogInResult {
         val logInValidation = logInData.validate()
         if (logInValidation is LogInResult.Error) return logInValidation
-        return wrapNetworkRequest(
-            request = {
+        return tryCatch(
+            action = {
                 val accountResponse = networkSource.logIn(logInData.mapToLogInBody())
                 accountPreference.saveAccountPrefData(accountResponse.mapToAccountPrefData())
                 LogInResult.Success
@@ -74,8 +75,8 @@ internal class AccountRepositoryImpl(
     }
 
     override suspend fun changeAvatar(changeAvatarData: ChangeAvatarData): ChangeAvatarResult =
-        wrapNetworkRequest(
-            request = {
+        tryCatch(
+            action = {
                 val avatarUrlResponse =
                     networkSource.changeAvatar(ChangeAvatarBody(changeAvatarData.file))
                 accountPreference.setAvatarUrl(avatarUrlResponse.avatarUrl)

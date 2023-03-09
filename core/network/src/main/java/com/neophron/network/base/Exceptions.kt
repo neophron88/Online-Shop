@@ -1,5 +1,6 @@
 package com.neophron.network.base
 
+import android.util.Log
 import com.neophron.network.base.Http.BACKEND
 import com.neophron.network.base.Http.CLIENT
 import retrofit2.HttpException

@@ -7,15 +7,6 @@ import com.neophron.network.base.ClientSideException
 import com.neophron.network.base.ConnectionException
 import com.neophron.network.base.Http
 
-inline fun <T> wrapNetworkRequest(
-    request: () -> T,
-    onError: (e: Exception) -> T
-) = try {
-    request()
-} catch (e: Exception) {
-    onError(e)
-}
-
 
 inline fun Exception.toErrorType(
     on404NotFound: () -> ErrorType = { BaseErrorType.Unknown(this) },

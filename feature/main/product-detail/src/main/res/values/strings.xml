@@ -2,8 +2,8 @@
     <string name="quantity">Quantity:</string>
     <string name="color">Color:</string>
     <string name="add_to_cart_as_UPPERCASE">ADD TO CART</string>
-    <string name="dollar_pattern">%1$s $</string>
+    <string name="dollar_pattern">$ %1$.2f</string>
     <string name="discount_pattern">%1$s% off</string>
-    <string name="reviews_pattern">(%1$s reviews)</string>
+    <string name="reviews_pattern">(%1$d reviews)</string>
 
 </resources>
