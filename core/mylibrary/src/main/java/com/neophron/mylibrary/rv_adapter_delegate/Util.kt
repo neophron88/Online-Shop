@@ -5,7 +5,6 @@ package com.neophron.mylibrary.rv_adapter_delegate
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.DiffUtil
 
-
 fun ItemsAdapter(vararg args: ItemDelegate<out Any>): ItemsAdapter {
     val builder = MediatorItemDelegate.Builder()
     args.forEach {

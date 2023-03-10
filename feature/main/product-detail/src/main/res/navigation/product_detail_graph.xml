@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="com.neophron.product_detail.presentation.ProductDetailFragment"
+        android:name="com.neophron.product_detail.presentation.ui.ProductDetailFragment"
         android:label="ProductDetailFragment" />
 </navigation>

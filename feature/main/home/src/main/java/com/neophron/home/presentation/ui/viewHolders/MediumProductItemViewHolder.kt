@@ -1,5 +1,6 @@
 package com.neophron.home.presentation.ui.viewHolders
 
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.neophron.home.databinding.MediumProductItemBinding
@@ -19,14 +20,19 @@ class MediumProductItemViewHolder(
 
     init {
         setupClickListener()
+
+
     }
 
 
     override fun onBind(item: ProductDisplay) = with(binding) {
+
         Glide.with(root).load(item.imageUrl).into(productImage)
         category.text = item.category
         name.text = item.name
         price.text = item.price
+
+
     }
 
 

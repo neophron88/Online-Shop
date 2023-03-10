@@ -10,13 +10,10 @@
         android:layout_width="320dp"
         android:layout_height="280dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/ImageCutCorners_4"
-        app:strokeColor="@color/purple_900"
-        app:strokeWidth=".001dp"
         tools:src="@drawable/test_image" />
 
     <LinearLayout

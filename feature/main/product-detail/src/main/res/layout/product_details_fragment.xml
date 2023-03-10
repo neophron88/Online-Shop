@@ -6,19 +6,19 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/tob_bar_container"
+        android:id="@+id/top_bar_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:padding="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/navigate_up"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/navigate_up"
             android:src="@drawable/ic_arrow_left_no_line" />
@@ -26,14 +26,19 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/total_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar_container">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="12dp">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/big_promo_pager"
@@ -42,31 +47,32 @@
                 android:clipToPadding="false"
                 android:orientation="horizontal" />
 
-            <androidx.viewpager2.widget.ViewPager2
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/small_promo_pager"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
-                android:orientation="horizontal"
-                android:paddingHorizontal="128dp"
-                android:paddingTop="22dp" />
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="24dp">
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
 
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:gravity="center_vertical"
                     android:maxLines="3"
-                    android:textAppearance="@style/Title1TextAppearanceSemiBold"
+                    android:paddingVertical="4dp"
+                    android:textAppearance="@style/Title1TextAppearanceBold"
                     android:textColor="@color/purple_900"
-                    app:layout_constraintBottom_toTopOf="@id/description"
                     app:layout_constraintEnd_toStartOf="@+id/guide_line"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -76,10 +82,9 @@
                     android:id="@+id/description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
+                    android:paddingVertical="4dp"
                     android:textAppearance="@style/Label1TextAppearanceRegular"
                     android:textColor="@color/gray_500"
-                    app:layout_constraintBottom_toTopOf="@id/rating_container"
                     app:layout_constraintEnd_toStartOf="@+id/guide_line"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/name"
@@ -89,16 +94,15 @@
                     android:id="@+id/rating_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@id/color"
+                    android:paddingVertical="4dp"
                     app:layout_constraintEnd_toStartOf="@+id/guide_line"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/description">
 
                     <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         android:layout_margin="2dp"
                         android:contentDescription="@string/icon"
                         android:src="@drawable/ic_star" />
@@ -108,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:textAppearance="@style/Label1TextAppearanceSemiBold"
+                        android:textAppearance="@style/Label2TextAppearanceSemiBold"
                         android:textColor="@color/purple_900"
                         tools:text="1.5" />
 
@@ -117,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
-                        android:textAppearance="@style/Label1TextAppearanceSemiBold"
+                        android:textAppearance="@style/Label2TextAppearanceRegular"
                         android:textColor="@color/gray_500"
                         tools:text="(40000 reviews)" />
                 </LinearLayout>
@@ -127,10 +131,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:paddingVertical="4dp"
                     android:text="@string/color"
-                    android:textAppearance="@style/Title3TextAppearanceSemiBold"
+                    android:textAppearance="@style/Title4TextAppearanceSemiBold"
                     android:textColor="@color/gray_500"
-                    app:layout_constraintBottom_toTopOf="@id/color_list"
                     app:layout_constraintEnd_toStartOf="@+id/guide_line"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rating_container" />
@@ -143,8 +147,8 @@
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:orientation="horizontal"
+                    android:paddingVertical="4dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/guide_line"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/color"
@@ -166,12 +170,14 @@
                     android:ellipsize="end"
                     android:gravity="end"
                     android:maxLines="3"
-                    android:textAppearance="@style/Title2TextAppearanceSemiBold"
+                    android:paddingVertical="4dp"
+                    android:textAppearance="@style/Title3TextAppearanceSemiBold"
                     android:textColor="@color/purple_900"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/guide_line"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="$ 22,50" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
@@ -185,7 +191,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/cut_corners"
         android:backgroundTint="@color/purple_900"
-        android:minHeight="142dp"
+        android:minHeight="180dp"
+        android:paddingHorizontal="6dp"
+        android:paddingTop="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -195,43 +203,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent=".5" />
+            app:layout_constraintGuide_percent=".4" />
 
         <TextView
             android:id="@+id/quantity"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/quantity"
-            android:textAppearance="@style/Title4TextAppearanceSemiBold"
+            android:textAppearance="@style/Label3TextAppearanceMedium"
             android:textColor="@color/gray_500"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/decrease"
+            app:layout_constraintEnd_toEndOf="@id/guide_line_for_total_container"
+            app:layout_constraintStart_toStartOf="@id/decrease"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/increase"
-            android:layout_width="36dp"
-            android:layout_height="22dp"
-            app:layout_constraintEnd_toStartOf="@id/decrease"
+            android:id="@+id/decrease"
+            style="@style/CounterButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            app:icon="@drawable/ic_minus"
+            app:layout_constraintBottom_toBottomOf="@id/counter_container"
+            app:layout_constraintEnd_toStartOf="@id/increase"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/quantity" />
+            app:layout_constraintTop_toTopOf="@id/counter_container"
+            app:layout_constraintVertical_bias=".8" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/decrease"
-            android:layout_width="36dp"
-            android:layout_height="22dp"
+            android:id="@+id/increase"
+            style="@style/CounterButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            app:icon="@drawable/ic_plus"
+            app:layout_constraintBottom_toBottomOf="@id/counter_container"
             app:layout_constraintEnd_toEndOf="@id/guide_line_for_total_container"
-            app:layout_constraintStart_toEndOf="@id/increase"
-            app:layout_constraintTop_toBottomOf="@id/quantity" />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/decrease"
+            app:layout_constraintTop_toTopOf="@id/counter_container"
+            app:layout_constraintVertical_bias=".8" />
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
+            android:id="@+id/counter_container"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
             app:cardBackgroundColor="@color/purple_400"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
-            app:contentPadding="14dp"
+            app:contentPadding="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guide_line_for_total_container"
             app:layout_constraintTop_toTopOf="parent">
@@ -242,21 +263,22 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/total_price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/add_to_cart_as_UPPERCASE"
-                    android:textAppearance="@style/Title4TextAppearanceSemiBold"
-                    android:textColor="@color/white" />
+                    android:gravity="center"
+                    android:textAppearance="@style/Label2TextAppearanceSemiBold"
+                    android:textColor="@color/purple_50" />
 
                 <TextView
-                    android:id="@+id/item_counter"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textAppearance="@style/Label2TextAppearanceMedium"
-                    android:textColor="@color/purple_50"
-                    tools:text="#2,500" />
+                    android:gravity="center"
+                    android:text="@string/add_to_cart_as_UPPERCASE"
+                    android:textAppearance="@style/Label3TextAppearanceSemiBold"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

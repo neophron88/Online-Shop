@@ -1,6 +1,6 @@
 package com.neophron.product_detail.di
 
-import com.neophron.product_detail.presentation.ProductDetailViewModel
+import com.neophron.product_detail.presentation.ui.ProductDetailViewModel
 import dagger.assisted.AssistedFactory
 
 

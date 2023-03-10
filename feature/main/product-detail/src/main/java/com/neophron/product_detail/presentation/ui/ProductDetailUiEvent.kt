@@ -1,4 +1,4 @@
-package com.neophron.product_detail.presentation
+package com.neophron.product_detail.presentation.ui
 
 import androidx.annotation.StringRes
 

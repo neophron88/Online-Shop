@@ -6,7 +6,7 @@
 
 
     <style name="ImageCutCorners_12">
-        <item name="cornerSize">12%</item>
+        <item name="cornerSize">18%</item>
     </style>
     <style name="ImageCutCorners_8">
         <item name="cornerSize">8%</item>

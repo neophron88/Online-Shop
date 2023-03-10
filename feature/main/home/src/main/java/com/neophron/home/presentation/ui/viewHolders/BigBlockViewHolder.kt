@@ -1,5 +1,6 @@
 package com.neophron.home.presentation.ui.viewHolders
 
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,7 @@ class BigBlockViewHolder(
 
 
     override fun onBind(item: BigBlockDisplay) = with(binding) {
+
         title.text = item.title
         productsAdapter.submitList(item.list)
     }

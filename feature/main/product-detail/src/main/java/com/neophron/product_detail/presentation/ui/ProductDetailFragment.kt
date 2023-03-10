@@ -1,17 +1,17 @@
-package com.neophron.product_detail.presentation
+package com.neophron.product_detail.presentation.ui
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.CompositePageTransformer
-import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.neophron.feature.contract.common.DependencyProvider
 import com.neophron.feature.contract.common.extractDependency
 import com.neophron.feature.contract.main_feature.MainNavigator
 import com.neophron.feature.viewModelFactory.viewModelProvider
-import com.neophron.mylibrary.ktx.dp
 import com.neophron.mylibrary.ktx.fragment.findParentAs
 import com.neophron.mylibrary.ktx.fragment.viewLifeCycle
 import com.neophron.mylibrary.ktx.showToast
@@ -22,11 +22,11 @@ import com.neophron.mylibrary.viewbinding_delegate.viewBindings
 import com.neophron.product_detail.R
 import com.neophron.product_detail.databinding.ProductDetailsFragmentBinding
 import com.neophron.product_detail.di.ProductDetailAssistedFactoryProvider
-import com.neophron.product_detail.presentation.viewHolders.BigProductItemViewHolder
+import com.neophron.product_detail.presentation.models.ProductImageDisplay
+import com.neophron.product_detail.presentation.viewHolders.BigPromoProductItemViewHolder
 import com.neophron.product_detail.presentation.viewHolders.ColorItemViewHolder
 import com.neophron.product_detail.presentation.viewHolders.SmallPromoProductItemViewHolder
 import java.util.*
-import kotlin.math.abs
 
 class ProductDetailFragment : Fragment(R.layout.product_details_fragment) {
 
@@ -53,34 +53,43 @@ class ProductDetailFragment : Fragment(R.layout.product_details_fragment) {
         setupQuantityCounter()
         observeUiState()
         observeUiEvent()
+
+        Log.d("it0088", "onViewCreated: ")
     }
+
 
     private fun setupNavigateUp() = binding.navigateUp.setOnClickListener {
         findNavController().navigateUp()
     }
-
 
     private fun setupRefreshLayout() = Unit
 
     private fun setupBigPromoAdapter() = ItemsAdapter(
         ItemDelegate(
             layout = R.layout.big_promo_product_item,
-            diffUtil = ItemDiffUtil(String::toString),
-            VHProducer = { BigProductItemViewHolder(it) }
+            diffUtil = ItemDiffUtil(ProductImageDisplay::url),
+            VHProducer = { BigPromoProductItemViewHolder(it) }
         )
     )
 
-    private fun setupBigPromoPager() {
-        binding.bigPromoPager.adapter = bigPromoAdapter
+    private fun setupBigPromoPager() = binding.apply {
+        bigPromoPager.adapter = bigPromoAdapter
+        bigPromoPager.registerOnPageChangeCallback(object : OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                viewModel.selectImage(position)
+                smallPromoPager.scrollToPosition(position)
+            }
+        })
     }
 
     private fun setupSmallPromoAdapter() = ItemsAdapter(
         ItemDelegate(
             layout = R.layout.small_promo_product_item,
-            diffUtil = ItemDiffUtil(String::toString),
+            diffUtil = ItemDiffUtil(ProductImageDisplay::url),
             VHProducer = {
-                SmallPromoProductItemViewHolder(it) {
-                    Log.d("it0088", "setupSmallPromoAdapter: $it")
+                SmallPromoProductItemViewHolder(it) { position ->
+                    viewModel.selectImage(position)
+                    binding.bigPromoPager.currentItem = position
                 }
             }
         )
@@ -88,15 +97,11 @@ class ProductDetailFragment : Fragment(R.layout.product_details_fragment) {
 
     private fun setupSmallPromoPager() = binding.smallPromoPager.apply {
         adapter = smallPromoAdapter
-        offscreenPageLimit = 3
-        setPageTransformer(CompositePageTransformer().apply {
-            addTransformer(MarginPageTransformer(10.dp(requireContext())))
-            addTransformer { page, position ->
-                val r = 1 - abs(position)
-                page.scaleY = 0.85f + r * 0.15f
-            }
-        })
+        itemAnimator = null
+        layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+
     }
+
 
     private fun setupColorsList() {
         binding.colorList.adapter = colorsAdapter
@@ -111,23 +116,27 @@ class ProductDetailFragment : Fragment(R.layout.product_details_fragment) {
         )
     )
 
-    private fun setupQuantityCounter() {
+    private fun setupQuantityCounter() = binding.apply {
+        increase.setOnClickListener { viewModel.increaseQuantity() }
+        decrease.setOnClickListener { viewModel.decreaseQuantity() }
     }
 
     private fun observeUiState() =
         viewModel.uiState.observe(viewLifecycleOwner, ::updateUi)
 
     private fun updateUi(uiState: ProductDetailUiState) = binding.apply {
-        val product = uiState.productDetail ?: return@apply
+        val product = uiState.detailInfo ?: return@apply
         name.text = product.name
         price.text = getString(R.string.dollar_pattern, product.price)
         description.text = product.description
-        rating.text = String.format(Locale.getDefault(), ".2f", product.rating)
+        rating.text = String.format(Locale.getDefault(), "%.1f", product.rating)
         reviews.text = getString(R.string.reviews_pattern, product.numberOfReviews)
-
-        bigPromoAdapter.submitList(product.imageUrls)
-        smallPromoAdapter.submitList(product.imageUrls)
-        colorsAdapter.submitList(product.colors)
+        totalPrice.text = getString(R.string.dollar_pattern, uiState.totalPrice)
+        uiState.images?.let {
+            smallPromoAdapter.submitList(it)
+            bigPromoAdapter.submitList(it)
+        }
+        uiState.colors?.let { colorsAdapter.submitList(it) }
 
     }
 

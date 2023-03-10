@@ -11,6 +11,16 @@
         <item name="shapeAppearanceOverlay">@style/ButtonShapeAppearance</item>
     </style>
 
+    <style name="CounterButtonStyle" parent="GlobalButtonStyle">
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">52dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="cornerRadius">9dp</item>
+    </style>
+
+
     <style name="ButtonShapeAppearance">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>

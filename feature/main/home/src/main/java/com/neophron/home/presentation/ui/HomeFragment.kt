@@ -87,9 +87,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun setupContentList() = binding.list.apply {
         adapter = contentAdapter
         itemAnimator = null
-        layoutManager = LinearLayoutManager(requireContext()).apply {
-            initialPrefetchItemCount = 4
-        }
+        layoutManager = LinearLayoutManager(requireContext())
         setRecycledViewPool(viewPool)
     }
 
