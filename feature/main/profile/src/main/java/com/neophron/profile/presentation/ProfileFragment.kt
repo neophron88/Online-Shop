@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -108,7 +107,6 @@ class ProfileFragment : Fragment(R.layout.profile_fragment) {
                 val intent = it.data ?: return@registerForActivityResult
                 val uri = intent.data ?: return@registerForActivityResult
                 val path = RealPathUtil.getRealPath(requireContext(), uri)
-                Log.d("it0088", path)
                 viewModel.changeAvatar(File(path))
             }
         }
