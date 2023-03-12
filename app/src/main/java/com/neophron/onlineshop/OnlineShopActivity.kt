@@ -2,6 +2,7 @@ package com.neophron.onlineshop
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.navOptions
 import com.neophron.feature.contract.app.AppNavigator
@@ -17,6 +18,9 @@ class OnlineShopActivity : AppCompatActivity(), AppNavigator {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.setBackgroundDrawableResource(com.neophron.ui.R.drawable.day_night)
+        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.isAppearanceLightStatusBars = true
+        windowInsetsController.isAppearanceLightNavigationBars = true
     }
 
     override fun navigateFromSplashToAuth(args: Bundle?) {

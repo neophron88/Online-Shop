@@ -25,165 +25,173 @@
     </LinearLayout>
 
 
-    <ScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/total_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_bar_container">
 
-        <LinearLayout
+
+        <ScrollView
+            android:id="@+id/content_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="12dp">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/big_promo_pager"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:orientation="horizontal" />
+                android:orientation="vertical"
+                android:paddingVertical="12dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/small_promo_pager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="22dp"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="24dp">
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="0dp"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/big_promo_pager"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="3"
-                    android:paddingVertical="4dp"
-                    android:textAppearance="@style/Title1TextAppearanceBold"
-                    android:textColor="@color/purple_900"
-                    app:layout_constraintEnd_toStartOf="@+id/guide_line"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="New balance sneakers" />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="4dp"
-                    android:textAppearance="@style/Label1TextAppearanceRegular"
-                    android:textColor="@color/gray_500"
-                    app:layout_constraintEnd_toStartOf="@+id/guide_line"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/name"
-                    tools:text="фыовлыфовлыфовлыовыфлвоыф" />
-
-                <LinearLayout
-                    android:id="@+id/rating_container"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingVertical="4dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guide_line"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/description">
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_margin="2dp"
-                        android:contentDescription="@string/icon"
-                        android:src="@drawable/ic_star" />
-
-                    <TextView
-                        android:id="@+id/rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:textAppearance="@style/Label2TextAppearanceSemiBold"
-                        android:textColor="@color/purple_900"
-                        tools:text="1.5" />
-
-                    <TextView
-                        android:id="@+id/reviews"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:textAppearance="@style/Label2TextAppearanceRegular"
-                        android:textColor="@color/gray_500"
-                        tools:text="(40000 reviews)" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/color"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingVertical="4dp"
-                    android:text="@string/color"
-                    android:textAppearance="@style/Title4TextAppearanceSemiBold"
-                    android:textColor="@color/gray_500"
-                    app:layout_constraintEnd_toStartOf="@+id/guide_line"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rating_container" />
-
+                    android:clipToPadding="false"
+                    android:orientation="horizontal" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/color_list"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingVertical="4dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toStartOf="@+id/guide_line"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/color"
-                    tools:listitem="@layout/color_item" />
-
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guide_line"
+                    android:id="@+id/small_promo_pager"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent=".7" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="22dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp" />
 
-
-                <TextView
-                    android:id="@+id/price"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="end"
-                    android:maxLines="3"
-                    android:paddingVertical="4dp"
-                    android:textAppearance="@style/Title3TextAppearanceSemiBold"
-                    android:textColor="@color/purple_900"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guide_line"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="$ 22,50" />
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="24dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:paddingVertical="4dp"
+                        android:textAppearance="@style/Title1TextAppearanceBold"
+                        android:textColor="@color/purple_900"
+                        app:layout_constraintEnd_toStartOf="@+id/guide_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="New balance sneakers" />
 
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="4dp"
+                        android:textAppearance="@style/Label1TextAppearanceRegular"
+                        android:textColor="@color/gray_500"
+                        app:layout_constraintEnd_toStartOf="@+id/guide_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/name"
+                        tools:text="фыовлыфовлыфовлыовыфлвоыф" />
 
-    </ScrollView>
+                    <LinearLayout
+                        android:id="@+id/rating_container"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guide_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/description">
 
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_margin="2dp"
+                            android:contentDescription="@string/icon"
+                            android:src="@drawable/ic_star" />
+
+                        <TextView
+                            android:id="@+id/rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:textAppearance="@style/Label2TextAppearanceSemiBold"
+                            android:textColor="@color/purple_900"
+                            tools:text="1.5" />
+
+                        <TextView
+                            android:id="@+id/reviews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:textAppearance="@style/Label2TextAppearanceRegular"
+                            android:textColor="@color/gray_500"
+                            tools:text="(40000 reviews)" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/color"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="4dp"
+                        android:text="@string/color"
+                        android:textAppearance="@style/Title4TextAppearanceSemiBold"
+                        android:textColor="@color/gray_500"
+                        app:layout_constraintEnd_toStartOf="@+id/guide_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rating_container" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/color_list"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toStartOf="@+id/guide_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/color"
+                        tools:listitem="@layout/color_item" />
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guide_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=".7" />
+
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:maxLines="3"
+                        android:paddingVertical="4dp"
+                        android:textAppearance="@style/Title3TextAppearanceSemiBold"
+                        android:textColor="@color/purple_900"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/guide_line"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="$ 22,50" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/total_container"
@@ -191,9 +199,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/cut_corners"
         android:backgroundTint="@color/purple_900"
-        android:minHeight="180dp"
         android:paddingHorizontal="6dp"
         android:paddingTop="22dp"
+        android:paddingBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -285,5 +293,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 

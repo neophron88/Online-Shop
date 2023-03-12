@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="auth_edit_text_height">42dp</dimen>
-    <dimen name="text_input_icon_size">36dp</dimen>
+    <dimen name="text_input_icon_size">32dp</dimen>
 </resources>

@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalCoroutinesApi::class)
+
 package com.neophron.home.presentation.ui.viewModel
 
 import androidx.annotation.StringRes
@@ -20,6 +22,7 @@ import com.neophron.mylibrary.require
 import com.neophron.mylibrary.single_use_data.MutableSingleUseData
 import com.neophron.mylibrary.single_use_data.SingleUseData
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
@@ -48,8 +51,6 @@ class HomeViewModel @AssistedInject constructor(
                 ::processResults
             )
         }
-
-    private val searchBy = MutableLiveData<String>()
 
 
     init {
@@ -104,15 +105,18 @@ class HomeViewModel @AssistedInject constructor(
         flashSale: ProductResult
     ) {
         if (latest is ProductResult.Success && flashSale is ProductResult.Success) {
+            val latestData = latest.productsGroup
+            val flashSaleData = flashSale.productsGroup
+            if(latestData.products.isEmpty() || flashSaleData.products.isEmpty()) return
             _uiState.value = requireUiState().copy(
                 contentList = listOf(
-                    latest.productsGroup.map {
+                    latestData.map {
                         MediumBlockDisplay(id, title, uiMapper.mapToDisplay(products))
                     },
-                    flashSale.productsGroup.map {
+                    flashSaleData.map {
                         BigBlockDisplay(id, title, uiMapper.mapToDisplay(products))
                     },
-                    generateBrandsBlock(latest.productsGroup, flashSale.productsGroup)
+                    generateBrandsBlock(latestData, flashSaleData)
                 ),
                 isContentLoading = false
             )

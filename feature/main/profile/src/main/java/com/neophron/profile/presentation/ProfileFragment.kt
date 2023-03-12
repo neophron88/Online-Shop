@@ -55,8 +55,9 @@ class ProfileFragment : Fragment(R.layout.profile_fragment) {
     }
 
     private fun configurePaddingRespectToBottomNav() {
-        val navHeight = findParentAs<MainBottomNavHeightProvider>().getBottomNavHeight()
-        binding.profileContainer.updatePadding(bottom = navHeight)
+        findParentAs<MainBottomNavHeightProvider>().setBottomNavHeightListener { height ->
+            binding.profileContainer.updatePadding(bottom = height)
+        }
     }
 
     private fun setupChangeAvatar() = binding.apply {
@@ -80,16 +81,15 @@ class ProfileFragment : Fragment(R.layout.profile_fragment) {
         if (uiState.changeAvatarInProgress)
             avatar.setImageDrawable(null)
         else
-            Glide.with(this@ProfileFragment)
-                .load(account.avatarUrl?.let { File(it) })
-                .error(com.neophron.ui.R.drawable.test_profile_image)
-                .into(avatar)
-
-
+            account.avatarUrl?.let {
+                Glide.with(this@ProfileFragment)
+                    .load(File(it))
+                    .into(avatar)
+            }
     }
 
     private fun observeUiEvent() = viewModel.uiEvent.observe(viewLifecycleOwner) {
-        if (it is ProfileUiEvent.ToastMessage) showToast(it.messageRes)
+        if (it is ProfileUiEvent.ToastMessage) requireView().showToast(it.messageRes)
     }
 
     private val requestReadWriteExternalStorage =

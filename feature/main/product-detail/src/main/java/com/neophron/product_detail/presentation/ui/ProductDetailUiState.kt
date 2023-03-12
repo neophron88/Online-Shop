@@ -9,4 +9,7 @@ data class ProductDetailUiState(
     val colors: List<String>? = null,
     val totalPrice: Double = 0.0,
     val isLoading: Boolean = false
-)
+) {
+
+    val dataIsEmpty get() = detailInfo == null
+}

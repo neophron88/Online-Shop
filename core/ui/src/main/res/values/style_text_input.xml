@@ -15,16 +15,6 @@
     </style>
 
 
-    <style name="ExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-        <item name="boxCornerRadiusBottomEnd">28dp</item>
-        <item name="boxCornerRadiusBottomStart">28dp</item>
-        <item name="boxCornerRadiusTopStart">28dp</item>
-        <item name="boxCornerRadiusTopEnd">28dp</item>
-        <item name="hintTextAppearance">@style/HintTextAppearance</item>
-        <item name="textInputStyle">@style/MaterialThemeOverlay</item>
-    </style>
-
-
     <style name="HintTextAppearance" parent="TextAppearance.Material3.TitleMedium" />
 
     <style name="MaterialThemeOverlay" parent="ThemeOverlay.MaterialComponents">

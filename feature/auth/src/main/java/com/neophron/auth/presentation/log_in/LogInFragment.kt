@@ -22,7 +22,6 @@ import com.neophron.mylibrary.viewbinding_delegate.viewBindings
 
 class LogInFragment : Fragment(R.layout.log_in_fragment) {
 
-    private val navController: NavController by viewLifeCycle { findNavController() }
 
     private val binding: LogInFragmentBinding by viewBindings()
 
@@ -72,7 +71,7 @@ class LogInFragment : Fragment(R.layout.log_in_fragment) {
         when (it) {
             is LogInUiEvent.LogInSuccess ->
                 requireActivity().takeAs<AppNavigator>().navigateFromAuthToMain()
-            is LogInUiEvent.ToastMessage -> showToast(it.messageRes)
+            is LogInUiEvent.ToastMessage -> requireView().showToast(it.messageRes)
         }
     }
 

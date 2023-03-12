@@ -53,9 +53,9 @@ class ProfileViewModel @AssistedInject constructor(
             val type = result.type
             if (type is BaseErrorType) {
                 _uiEvent.value = ProfileUiEvent.ToastMessage(type.toStringRes())
-                _uiState.value = _uiState.value.require().copy(changeAvatarInProgress = false)
             }
         }
+        _uiState.value = _uiState.value.require().copy(changeAvatarInProgress = false)
     }
 
     fun logOut() = viewModelScope.launch {

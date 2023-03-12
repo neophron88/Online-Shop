@@ -90,7 +90,7 @@ class SignInFragment : Fragment(R.layout.sign_in_fragment) {
         when (it) {
             is SignInUiEvent.SignInSuccess ->
                 requireActivity().takeAs<AppNavigator>().navigateFromAuthToMain()
-            is SignInUiEvent.ToastMessage -> showToast(it.messageRes)
+            is SignInUiEvent.ToastMessage -> requireView().showToast(it.messageRes)
         }
     }
 

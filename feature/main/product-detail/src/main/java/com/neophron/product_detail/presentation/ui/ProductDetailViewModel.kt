@@ -35,7 +35,7 @@ class ProductDetailViewModel @AssistedInject constructor(
     }
 
     private var totalPrice = 0.0
-    private val lastCheckedImageIndex = 1
+    private var lastCheckedImageIndex = 0
 
 
     private fun getProductDetail() = viewModelScope.launch {
@@ -63,7 +63,8 @@ class ProductDetailViewModel @AssistedInject constructor(
         _uiState.value = _uiState.value.require().copy(
             detailInfo = productInfo,
             colors = detail.colors,
-            images = productImages
+            images = productImages,
+            isLoading = false
         )
 
     }
@@ -87,6 +88,7 @@ class ProductDetailViewModel @AssistedInject constructor(
         val newImages = images.mapIndexed { index, imageDisplay ->
             imageDisplay.copy(isChecked = index == checkedIndex)
         }
+        lastCheckedImageIndex = checkedIndex
         _uiState.value = _uiState.value.require().copy(images = newImages)
     }
 

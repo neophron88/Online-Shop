@@ -8,7 +8,7 @@
     <string name="something_went_wrong">Something went wrong</string>
 
     <string name="empty_field">Field is empty</string>
-    <string name="invalid_email">Invalid Email! Correct example "jack-hofman10@mail.ru"</string>
+    <string name="invalid_email">Invalid Email! Example jack-hofman10@mail.ru</string>
     <string name="too_short_password">Too short password</string>
     <string name="no_such_account">No such account</string>
     <string name="incorrect_password">Incorrect password</string>

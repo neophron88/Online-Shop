@@ -1,6 +1,5 @@
 package com.neophron.home.presentation.ui.viewHolders
 
-import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.neophron.home.databinding.MediumProductItemBinding

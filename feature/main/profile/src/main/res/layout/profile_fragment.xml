@@ -58,10 +58,10 @@
                     android:background="@color/gray_500"
                     android:padding="3dp"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/test_profile_image"
                     app:shapeAppearance="@style/ImageRoundedSquare"
                     app:strokeColor="@color/gray_400"
-                    app:strokeWidth="1.5dp"
-                    tools:src="@drawable/test_profile_image" />
+                    app:strokeWidth="1.5dp" />
 
                 <TextView
                     android:id="@+id/change_photo"
@@ -135,31 +135,37 @@
                     layout="@layout/user_feature_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <include
                     android:id="@+id/payment_method_item"
                     layout="@layout/user_feature_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <include
                     android:id="@+id/balance_item_value"
                     layout="@layout/user_feature_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <include
                     android:id="@+id/trade_history_item"
                     layout="@layout/user_feature_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <include
                     android:id="@+id/restore_purchase_item"
                     layout="@layout/user_feature_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <include
                     android:id="@+id/help_item"
                     layout="@layout/user_feature_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <include
                     android:id="@+id/log_out_item"
                     layout="@layout/user_feature_item"

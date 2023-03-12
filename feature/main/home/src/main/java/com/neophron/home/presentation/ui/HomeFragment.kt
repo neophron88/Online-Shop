@@ -2,12 +2,15 @@ package com.neophron.home.presentation.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neophron.feature.contract.common.DependencyProvider
 import com.neophron.feature.contract.common.extractDependency
+import com.neophron.feature.contract.main_feature.MainBottomNavHeightProvider
+import com.neophron.feature.contract.main_feature.MainBottomNavProvider
 import com.neophron.feature.viewModelFactory.viewModelProvider
 import com.neophron.home.R
 import com.neophron.home.databinding.HomeFragmentBinding
@@ -28,18 +31,22 @@ import java.io.File
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
 
-
     private val binding: HomeFragmentBinding by viewBindings()
 
     private val contentAdapter by viewLifeCycle { setupContentAdapter() }
 
     private val searchProductAdapter by viewLifeCycle { setupSearchProductAdapter() }
 
+    private val bottomNav by viewLifeCycle {
+        findParentAs<MainBottomNavProvider>().getBottomNav()
+    }
+
     private val viewModel: HomeViewModel by viewModelProvider {
         findParentAs<DependencyProvider>()
             .extractDependency<HomeAssistedFactoryProvider>()
             .getHomeFactory()
             .create()
+
     }
 
     internal val viewPool by viewLifeCycle { RecyclerView.RecycledViewPool() }
@@ -48,12 +55,19 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        configurePaddingRespectToBottomNav()
         setupSearchingProducts()
         setupSearchProductList()
         setupContentList()
         setupRefreshContent()
         observeUiState()
         observeUiEvent()
+    }
+
+    private fun configurePaddingRespectToBottomNav() {
+        findParentAs<MainBottomNavHeightProvider>().setBottomNavHeightListener { height ->
+            binding.contentList.updatePadding(bottom = height)
+        }
     }
 
     private fun setupSearchProductAdapter() = ItemsAdapter(
@@ -84,7 +98,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         layoutManager = LinearLayoutManager(requireContext())
     }
 
-    private fun setupContentList() = binding.list.apply {
+    private fun setupContentList() = binding.contentList.apply {
         adapter = contentAdapter
         itemAnimator = null
         layoutManager = LinearLayoutManager(requireContext())
@@ -110,7 +124,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun observeUiEvent() = viewModel.uiEvent.observe(viewLifecycleOwner) {
-        if (it is HomeUiEvent.ToastMessage) showToast(it.msgRes)
+        if (it is HomeUiEvent.ToastMessage) bottomNav.showToast(it.msgRes)
         else if (it is HomeUiEvent.SearchingResult) {
             if (isThereOnlyOneElement(it.suggestions) &&
                 isTheOneElementEqualsToEditSearchText(it.suggestions)
